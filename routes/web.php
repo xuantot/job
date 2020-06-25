@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'frontend\IndexController@getIndex');
+Route::get('/contact', 'frontend\IndexController@getContact');
+
+Route::get('/job', 'frontend\jobController@getJob');
+Route::get('/job/detail', 'frontend\jobController@getJobDetail');
+Route::get('/job/candidate', 'frontend\jobController@getCandidate');
+Route::get('/job/element', 'frontend\jobController@getElement');
+
+
