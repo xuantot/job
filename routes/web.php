@@ -22,7 +22,8 @@ Route::get('/login', 'frontend\IndexController@getLogin');
 Route::get('/job', 'frontend\jobController@getJob');
 Route::get('/job/detail', 'frontend\jobController@getJobDetail');
 Route::get('/job/candidate', 'frontend\jobController@getCandidate');
-Route::get('/job/element', 'frontend\jobController@getElement');
+
+// Route::get('/job/element', 'frontend\jobController@getElement');
 
 
 
@@ -43,6 +44,18 @@ Route::get('/admin/user/add', 'backend\userController@getAddUser');
 Route::get('/admin/user/edit', 'backend\userController@getEditUser');
 
 Route::get('/admin/user/client', 'backend\userController@getUserClient');
+
+Route::get('/admin/order', 'backend\OrderController@getOrder');
+Route::get('/admin/order/detail', 'backend\OrderController@getDetailOrder');
+Route::get('/admin/order/processed', 'backend\OrderController@getProcessedOrder');
+
+
+// CMS
+Route::get('/job/cms', 'cms\cmsController@getcms');
+
+
+
+
 
 
 

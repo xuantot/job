@@ -41,7 +41,7 @@
                                     <a href="/login">Log in</a>
                                 </div>
                                 <div class="d-none d-lg-block">
-                                    <a class="boxed-btn3" href="/login">Post a Job</a>
+                                    <a class="boxed-btn3" href="/element">Post a Job</a>
                                 </div>
                             </div>
                         </div>

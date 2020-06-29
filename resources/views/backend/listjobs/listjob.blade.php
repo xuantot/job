@@ -42,7 +42,7 @@
 											<th>ID</th>
 											<th>Thông tin Job</th>
 											<th>Mức lương</th>
-											<th>Tình trạng</th>
+											<th>Vị trí tuyển dụng</th>
 											<th>Danh mục</th>
 											<th>Tùy chọn</th>
 										</tr>
@@ -65,7 +65,7 @@
 											</td>
 											<td>20000000VNĐ</td>
 											<td>
-												<a name="" id="" class="btn btn-danger" href="#" role="button">Đã ngưng</a>
+												Leader
 											</td>
 											<td>Software &amp; Web</td>
 											<td>
@@ -90,7 +90,7 @@
 											</td>
 											<td>20000000VNĐ</td>
 											<td>
-												<a name="" id="" class="btn btn-success" href="#" role="button">Còn tuyển</a>
+												Leader
 											</td>
 											<td>Software &amp; Web</td>
 											<td>
