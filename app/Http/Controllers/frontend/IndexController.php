@@ -14,4 +14,7 @@ class IndexController extends Controller
     function getContact(){
         return view("frontend.contact");
     }
+    function getLogin(){
+        return view("frontend.login");
+    }
 }
