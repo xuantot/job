@@ -42,8 +42,11 @@ Route::get('/admin/job/add', 'backend\jobController@getAddJob');
 Route::get('/admin/user', 'backend\userController@getUser');
 Route::get('/admin/user/add', 'backend\userController@getAddUser');
 Route::get('/admin/user/edit', 'backend\userController@getEditUser');
+Route::get('/admin/user/info', 'backend\userController@getInfoUser');
 
-Route::get('/admin/user/client', 'backend\userController@getUserClient');
+
+Route::get('/admin/user/company', 'backend\userController@getUserCompany');
+Route::get('/admin/user/candidate', 'backend\userController@getUserCandidate');
 
 Route::get('/admin/order', 'backend\OrderController@getOrder');
 Route::get('/admin/order/detail', 'backend\OrderController@getDetailOrder');
@@ -51,7 +54,14 @@ Route::get('/admin/order/processed', 'backend\OrderController@getProcessedOrder'
 
 
 // CMS
-Route::get('/job/cms', 'cms\cmsController@getcms');
+Route::get('/company/cms', 'cms\cmsController@getCms');
+Route::get('/company/cms/job', 'cms\cmsController@getCmsJob');
+Route::get('/company/cms/job/add', 'cms\cmsController@getCmsAddJob');
+Route::get('/company/cms/job/edit', 'cms\cmsController@getCmsEditJob');
+Route::get('/company/cms', 'cms\cmsController@getcms');
+Route::get('/company/cms', 'cms\cmsController@getcms');
+Route::get('/company/cms', 'cms\cmsController@getcms');
+
 
 
 

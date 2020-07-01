@@ -1,6 +1,6 @@
 @extends('backend.master.master')
 
-@section('title', "Danh sách quản trị viên")
+@section('title', "Danh sách ứng viên")
 	
 @section('content')
 	
@@ -11,14 +11,14 @@
 				<li><a href="/admin"><svg class="glyph stroked home">
 							<use xlink:href="#stroked-home"></use>
 						</svg></a></li>
-				<li class="active">Danh sách quản trị viên</li>
+				<li class="active">Danh sách ứng viên</li>
 			</ol>
 		</div>
 		<!--/.row-->
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách quản trị viên</h1>
+				<h1 class="page-header">Danh sách ứng viên</h1>
 			</div>
 		</div>
 		<!--/.row-->
@@ -31,12 +31,6 @@
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<div class="alert bg-success" role="alert">
-									<svg class="glyph stroked checkmark">
-										<use xlink:href="#stroked-checkmark"></use>
-									</svg>Đã thêm thành công<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-								</div>
-								<a href="/admin/user/add" class="btn btn-primary">Thêm quản trị viên</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 
 									<thead>
@@ -46,7 +40,7 @@
 											<th>Full</th>
 											<th>Address</th>
                                             <th>Phone</th>
-                                            <th>Level</th>
+                                        
 											<th width='18%'>Tùy chọn</th>
 										</tr>
 									</thead>
@@ -58,9 +52,9 @@
 											<td>Admin</td>
 											<td>Hà Nội</td>
                                             <td>0147258369</td>
-                                            <td>Admin</td>
+                                           
 											<td>
-												<a href="/admin/user/edit" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												
 												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
                                         </tr>
@@ -70,9 +64,9 @@
 											<td>Admin</td>
 											<td>Hà Nội</td>
                                             <td>0147258369</td>
-                                            <td>Admin</td>
+                                      
 											<td>
-												<a href="/admin/user/edit" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												
 												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>

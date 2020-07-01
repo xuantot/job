@@ -19,10 +19,22 @@ class userController extends Controller
         return view('backend.users.edituser');
     }
 
+    function getInfoUser(){
+        return view('backend.users.infouser');
+    }
+
+
+
     // Client
-    function getUserClient(){
+    function getUserCompany(){
         return view('backend.usersClient.listuserclient');
     }
+
+    function getUserCandidate(){
+        return view('backend.usersCandidate.listusercandidate');
+    }
+
+
 
 
 

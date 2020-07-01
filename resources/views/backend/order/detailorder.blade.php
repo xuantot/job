@@ -5,10 +5,10 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><svg class="glyph stroked home">
+				<li><a href="/admin"><svg class="glyph stroked home">
 							<use xlink:href="#stroked-home"></use>
 						</svg></a></li>
-				<li class="active">Đơn hàng / Chi tiết đặt hàng</li>
+				<li class="active">Bài đăng / Chi tiết bài đăng</li>
 			</ol>
 		</div>
 		<!--/.row-->
@@ -16,7 +16,7 @@
 			<div class="col-xs-12 col-md-12 col-lg-12">
 
 				<div class="panel panel-primary">
-					<div class="panel-heading">Chi tiết đặt hàng</div>
+					<div class="panel-heading">Chi tiết bài đăng</div>
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
@@ -45,7 +45,7 @@
 											<th>Thông tin Job</th>
 											<th>Mức lương</th>
 											<th>Vị trí tuyển dụng</th>
-											<th>Danh mục</th>
+											
 										</tr>
 									</thead>
 									<tbody>
@@ -57,9 +57,9 @@
 													<div class="col-md-9">
 														<p><strong>Mã Job : JB01</strong></p>
 														<p>Tên sản phẩm : Creative Designer</p>
-														<p>Danh mục: Software &amp; Web</p>
+														
 														<p>Địa điểm: California, USA</p>
-														<p>Thời gian: Part-time</p>
+													
 							
 													</div>
 												</div>
@@ -68,7 +68,7 @@
 											<td>
 												Leader
 											</td>
-											<td>Software &amp; Web</td>
+											
 										</tr>
 										<tr>
 											<td>1</td>
@@ -78,9 +78,9 @@
 													<div class="col-md-9">
 														<p><strong>Mã Job : JB02</strong></p>
 														<p>Tên sản phẩm : Creative Designer</p>
-														<p>Danh mục: Software &amp; Web</p>
+														
 														<p>Địa điểm: California, USA</p>
-														<p>Thời gian: Part-time</p>
+														
 							
 													</div>
 												</div>
@@ -89,13 +89,13 @@
 											<td>
 												Leader
 											</td>
-											<td>Software &amp; Web</td>
+											
 										</tr>
 
 									</tbody>
 								</table>
 								<div class="alert alert-primary" role="alert" align='right'>
-									<a name="" id="" class="btn btn-success" href="#" role="button">Xử lý</a>
+									<a name="" id="" class="btn btn-success" href="/admin/order/processed" role="button">Xử lý</a>
 								</div>
 							</div>
 						</div>

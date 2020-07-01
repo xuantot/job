@@ -7,7 +7,18 @@ use Illuminate\Http\Request;
 
 class cmsController extends Controller
 {
-    function getcms(){
-        return view('cms.elements');
+    function getCms(){
+        return view('cms.indexcms');
+    }
+    function getCmsJob(){
+        return view('cms.listjobs.listjob_cms');
+    }
+
+    function getCmsAddJob(){
+        return view('cms.listjobs.addjob_cms');
+    }
+
+    function getCmsEditJob(){
+        return view('cms.listjobs.editjob_cms');
     }
 }

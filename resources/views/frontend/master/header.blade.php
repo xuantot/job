@@ -21,13 +21,7 @@
                                             <ul class="submenu">
                                                 <li><a href="/job/candidate">Candidates </a></li>
                                                 <li><a href="/job/detail">job details </a></li>
-                                                <li><a href="/job/element">elements</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">blog</a></li>
-                                                <li><a href="#">single-blog</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="/contact">Contact</a></li>
@@ -41,7 +35,7 @@
                                     <a href="/login">Log in</a>
                                 </div>
                                 <div class="d-none d-lg-block">
-                                    <a class="boxed-btn3" href="/element">Post a Job</a>
+                                    <a class="boxed-btn3" href="/company/cms/job">Post a Job</a>
                                 </div>
                             </div>
                         </div>

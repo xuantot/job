@@ -51,56 +51,56 @@
 									<div class="item-menu active">Danh mục </div>
 									<div class="item-menu"><span>Design &amp; Creative</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Marketing</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Telemarketing</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Software &amp; Web</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Administration</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Teaching &amp; Education</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Engineering</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>
 									</div>
 									<div class="item-menu"><span>Garments &amp; Textile</span>
 										<div class="category-fix">
-											<a class="btn-category btn-primary" href="editcategory.html"><i class="fa fa-edit"></i></a>
+											<a class="btn-category btn-primary" href="/admin/category/edit"><i class="fa fa-edit"></i></a>
 											<a class="btn-category btn-danger" href="#"><i class="fas fa-times"></i></i></a>
 
 										</div>

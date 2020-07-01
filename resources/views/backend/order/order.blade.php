@@ -10,7 +10,7 @@
 				<li><a href="#"><svg class="glyph stroked home">
 							<use xlink:href="#stroked-home"></use>
 						</svg></a></li>
-				<li class="active">Order</li>
+				<li class="active">Bài đăng</li>
 			</ol>
 		</div>
 		<!--/.row-->
@@ -23,7 +23,7 @@
 						<div class="bootstrap-table">
 							<div class="table-responsive">
 
-								<a href="orderinfo.html" class="btn btn-success">Bài đăng đã xử lý</a>
+								<a href="/admin/order/processed" class="btn btn-success">Bài đăng đã xử lý</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 									<thead>
 										<tr class="bg-primary">
@@ -42,7 +42,7 @@
 											<td>0147258369</td>
 											<td>Hà Nội</td>
 											<td>
-												<a href="orderinfo.html" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
+												<a href="/admin/order/detail" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
 
 											</td>
 										</tr>
