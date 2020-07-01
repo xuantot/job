@@ -59,8 +59,6 @@ Route::get('/company/cms/job', 'cms\cmsJobController@getCmsJob');
 Route::get('/company/cms/job/add', 'cms\cmsJobController@getCmsJobAdd');
 Route::get('/company/cms/job/edit', 'cms\cmsJobController@getCmsJobEdit');
 
-Route::get('/company/cms/category', 'cms\cmsCategoryController@getCmsCategory');
-Route::get('/company/cms/category/edit', 'cms\cmsCategoryController@getCmsCategoryEdit');
 
 Route::get('/company/cms/order', 'cms\cmsOrderController@getCmsOrder');
 Route::get('/company/cms/order/processed', 'cms\cmsOrderController@getCmsOrderProcessed');
