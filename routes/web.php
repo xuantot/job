@@ -23,7 +23,6 @@ Route::get('/job', 'frontend\jobController@getJob');
 Route::get('/job/detail', 'frontend\jobController@getJobDetail');
 Route::get('/job/candidate', 'frontend\jobController@getCandidate');
 
-// Route::get('/job/element', 'frontend\jobController@getElement');
 
 
 
@@ -55,12 +54,18 @@ Route::get('/admin/order/processed', 'backend\OrderController@getProcessedOrder'
 
 // CMS
 Route::get('/company/cms', 'cms\cmsController@getCms');
-Route::get('/company/cms/job', 'cms\cmsController@getCmsJob');
-Route::get('/company/cms/job/add', 'cms\cmsController@getCmsAddJob');
-Route::get('/company/cms/job/edit', 'cms\cmsController@getCmsEditJob');
-Route::get('/company/cms', 'cms\cmsController@getcms');
-Route::get('/company/cms', 'cms\cmsController@getcms');
-Route::get('/company/cms', 'cms\cmsController@getcms');
+
+Route::get('/company/cms/job', 'cms\cmsJobController@getCmsJob');
+Route::get('/company/cms/job/add', 'cms\cmsJobController@getCmsJobAdd');
+Route::get('/company/cms/job/edit', 'cms\cmsJobController@getCmsJobEdit');
+
+Route::get('/company/cms/category', 'cms\cmsCategoryController@getCmsCategory');
+Route::get('/company/cms/category/edit', 'cms\cmsCategoryController@getCmsCategoryEdit');
+
+Route::get('/company/cms/order', 'cms\cmsOrderController@getCmsOrder');
+Route::get('/company/cms/order/processed', 'cms\cmsOrderController@getCmsOrderProcessed');
+
+
 
 
 
