@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,57 +15,79 @@ use Illuminate\Support\Facades\Route;
 */
 
 // ---Frontend
-Route::get('/', 'frontend\IndexController@getIndex');
-Route::get('/contact', 'frontend\IndexController@getContact');
+Route::group(['prefix' => ''], function () {
 
-Route::get('/login', 'frontend\IndexController@getLogin');
+    Route::get('/', 'frontend\IndexController@getIndex');
+    Route::get('/contact', 'frontend\IndexController@getContact');
 
-Route::get('/job', 'frontend\jobController@getJob');
-Route::get('/job/detail', 'frontend\jobController@getJobDetail');
-Route::get('/job/candidate', 'frontend\jobController@getCandidate');
+    Route::get('/login', 'frontend\loginController@getLogin');
+    Route::get('/newaccount', 'frontend\loginController@getAccount');
 
-
+    Route::group(['prefix' => 'job'], function () {
+        Route::get('/', 'frontend\jobController@getJob');
+        Route::get('/detail', 'frontend\jobController@getJobDetail');
+        Route::get('/candidate', 'frontend\jobController@getCandidate'); 
+    });
+});
 
 
 // ---Backend
-Route::get('/admin', 'backend\IndexController@getIndex');
+Route::group(['prefix' => 'admin'], function () {
 
-Route::get('/admin/login', 'backend\LoginController@getLogin');
+    Route::get('/', 'backend\IndexController@getIndex');
 
-Route::get('/admin/category', 'backend\categoryController@getCategory');
-Route::get('/admin/category/edit', 'backend\categoryController@getEditCategory');
+    Route::get('/login', 'backend\LoginController@getLogin');
 
-Route::get('/admin/job', 'backend\jobController@getJob');
-Route::get('/admin/job/edit', 'backend\jobController@getEditJob');
-Route::get('/admin/job/add', 'backend\jobController@getAddJob');
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('/', 'backend\categoryController@getCategory');
+        Route::get('/edit', 'backend\categoryController@getEditCategory');
+    });
 
-Route::get('/admin/user', 'backend\userController@getUser');
-Route::get('/admin/user/add', 'backend\userController@getAddUser');
-Route::get('/admin/user/edit', 'backend\userController@getEditUser');
-Route::get('/admin/user/info', 'backend\userController@getInfoUser');
+    Route::group(['prefix' => 'job'], function () {
+        Route::get('/', 'backend\jobController@getJob');
+        Route::get('/edit', 'backend\jobController@getEditJob');
+        Route::get('/add', 'backend\jobController@getAddJob');
+    });
 
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', 'backend\userController@getUser');
+        Route::get('/add', 'backend\userController@getAddUser');
+        Route::get('/edit', 'backend\userController@getEditUser');
+        Route::get('/info', 'backend\userController@getInfoUser');
 
-Route::get('/admin/user/company', 'backend\userController@getUserCompany');
-Route::get('/admin/user/candidate', 'backend\userController@getUserCandidate');
+        Route::get('/company', 'backend\userController@getUserCompany');
+        Route::get('/candidate', 'backend\userController@getUserCandidate');
+    });
 
-Route::get('/admin/order', 'backend\OrderController@getOrder');
-Route::get('/admin/order/detail', 'backend\OrderController@getDetailOrder');
-Route::get('/admin/order/processed', 'backend\OrderController@getProcessedOrder');
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('/', 'backend\OrderController@getOrder');
+        Route::get('/detail', 'backend\OrderController@getDetailOrder');
+        Route::get('/processed', 'backend\OrderController@getProcessedOrder');
+    });
+});
+
 
 
 // CMS
-Route::get('/company/cms', 'cms\cmsController@getCms');
 
-Route::get('/company/cms/job', 'cms\cmsJobController@getCmsJob');
-Route::get('/company/cms/job/add', 'cms\cmsJobController@getCmsJobAdd');
-Route::get('/company/cms/job/edit', 'cms\cmsJobController@getCmsJobEdit');
+Route::group(['prefix' => 'company/cms'], function () {
 
+    Route::get('/', 'cms\cmsController@getCms');
 
-Route::get('/company/cms/order', 'cms\cmsOrderController@getCmsOrder');
-Route::get('/company/cms/order/processed', 'cms\cmsOrderController@getCmsOrderProcessed');
+    Route::get('/account', 'cms\cmsController@getAccount');
 
+    Route::group(['prefix' => 'job'], function () {
+        Route::get('/', 'cms\cmsJobController@getCmsJob');
+        Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
+        Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
+    });
 
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('/', 'cms\cmsOrderController@getCmsOrder');
+        Route::get('/processed', 'cms\cmsOrderController@getCmsOrderProcessed');
+    });
 
+});
 
 
 

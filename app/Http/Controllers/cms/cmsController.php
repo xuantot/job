@@ -10,15 +10,8 @@ class cmsController extends Controller
     function getCms(){
         return view('cms.index');
     }
-    function getCmsJob(){
-        return view('cms.listjobs.listjob_cms');
+    function getAccount(){
+        return view('cms.user.infouser');
     }
 
-    function getCmsAddJob(){
-        return view('cms.listjobs.addjob_cms');
-    }
-
-    function getCmsEditJob(){
-        return view('cms.listjobs.editjob_cms');
-    }
 }

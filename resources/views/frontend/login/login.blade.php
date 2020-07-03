@@ -15,6 +15,15 @@
 
 <body>
 
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#1488ef;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+	
+				<h3 align="center" style="color: #fff"><b>Job Board</b></h3>
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
@@ -33,7 +42,9 @@
 									<input name="remember" type="checkbox" value="Remember Me">Remember Me
 								</label>
 							</div>
-							<a href="index.html" class="btn btn-primary">Login</a>
+							<a href="index.html" class="btn btn-primary">Đăng nhập</a>
+							<a href="/newaccount" class="btn btn-primary" style="margin-left: 25px">Đăng ký</a>
+
 						</fieldset>
 					</form>
 				</div>

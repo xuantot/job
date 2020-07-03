@@ -56,7 +56,7 @@
 													<div class="col-md-9">
 														<p><strong>Mã Job : JB01</strong></p>
 														<p>Tên sản phẩm : Creative Designer</p>
-														<p>Danh mục: Software &amp; Web</p>
+														
 														<p>Địa điểm: California, USA</p>
 														<p>Thời gian: Part-time</p>
 							
@@ -81,7 +81,7 @@
 													<div class="col-md-9">
 														<p><strong>Mã Job : JB02</strong></p>
 														<p>Tên sản phẩm : Creative Designer</p>
-														<p>Danh mục: Software &amp; Web</p>
+														
 														<p>Địa điểm: California, USA</p>
 														<p>Thời gian: Part-time</p>
 							

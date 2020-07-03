@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class loginController extends Controller
 {
     function getLogin(){
-        return view("backend.login");
+        return view("backend.login.login");
     }
 
 }
