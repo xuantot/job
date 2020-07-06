@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Forms</title>
-	<base href="{{ asset('frontend/login') }}/">
+	<base href="{{ asset('backend') }}/">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 	
-				<h3 align="center" style="color: #fff"><b>Job Board</b></h3>
+				<a href="/"><h3 align="center" style="color: #fff"><b>Job Board</b></h3></a>
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
@@ -69,7 +69,7 @@
                                 <div class="col-md-8 col-lg-8 col-lg-offset-2 text-right">
                                   
                                     <button class="btn btn-success"  type="submit">Đăng ký</button>
-                                    <button class="btn btn-danger" type="reset">Huỷ bỏ</button>
+                                    <a href="/login" class="btn btn-danger" type="reset">Huỷ bỏ</a>
                                 </div>
                             </div>
                            

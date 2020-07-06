@@ -74,7 +74,8 @@
                                         <label>Thông tin công ty</label>
                                         <textarea name="info" style="width: 100%;height: 100px;"></textarea>
                                     </div>
-                                 </div>
+                                </div>
+                                
 
                  
                     
