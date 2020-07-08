@@ -70,7 +70,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Thông tin công ty</label>
-                                        <textarea name="info" style="width: 100%;height: 100px;"></textarea>
+                                        <textarea id="editor" name="info_company" style="width: 100%;height: 100px;"></textarea>
+                                        <script src={{ url('/ckeditor/ckeditor.js') }}></script>
+                                        <script>CKEDITOR.replace( 'info_company');</script>
                                     </div>
                                  </div>
 
@@ -81,7 +83,9 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Mô tả công việc</label>
-                                    <textarea id="editor" name="describe" style="width: 100%;height: 100px;"></textarea>
+                                    <textarea id="editor" name="info_job" style="width: 100%;height: 100px;"></textarea>
+                                    <script src={{ url('/ckeditor/ckeditor.js') }}></script>
+                                        <script>CKEDITOR.replace( 'info_job');</script>
                                 </div>
                                 <button class="btn btn-success" name="add-product" type="submit">Sửa Job</button>
                                 <button class="btn btn-danger" type="reset">Huỷ bỏ</button>
@@ -98,7 +102,7 @@
 </div>
 @endsection
 
-@section('scrip')
+@section('script')
 <script>
 
     function changeImg(input) {

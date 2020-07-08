@@ -43,10 +43,20 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/edit', 'backend\categoryController@getEditCategory');
     });
 
+    Route::group(['prefix' => 'company'], function () {
+        Route::get('/', 'backend\companyController@getCompany');
+        Route::post('/', 'backend\companyController@postCompany');
+        Route::get('/edit/{id}', 'backend\companyController@getEditCompany');
+        Route::post('/edit/{id}', 'backend\companyController@postEditCompany');
+
+        Route::get('/delete/{id}', 'backend\companyController@getDeleteCompany');
+    });
+
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'backend\jobController@getJob');
         Route::get('/edit', 'backend\jobController@getEditJob');
         Route::get('/add', 'backend\jobController@getAddJob');
+        Route::post('/add', 'backend\jobController@postAddJob');
     });
 
     Route::group(['prefix' => 'user'], function () {
