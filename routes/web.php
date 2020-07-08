@@ -26,7 +26,7 @@ Route::group(['prefix' => ''], function () {
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'frontend\jobController@getJob');
         Route::get('/detail', 'frontend\jobController@getJobDetail');
-        Route::get('/candidate', 'frontend\jobController@getCandidate'); 
+        Route::get('/candidate', 'frontend\jobController@getCandidate');
     });
 });
 
@@ -40,7 +40,10 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', 'backend\categoryController@getCategory');
-        Route::get('/edit', 'backend\categoryController@getEditCategory');
+        Route::post('', 'backend\categoryController@postCategory');
+        Route::post('remove', 'backend\categoryController@deleteCategory');
+        Route::get('/edit/{id}', 'backend\categoryController@getEditCategory');
+        Route::put('/{id}', 'backend\categoryController@updateCategory');
     });
 
     Route::group(['prefix' => 'job'], function () {
