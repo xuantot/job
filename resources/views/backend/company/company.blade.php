@@ -95,7 +95,7 @@
 	</div>
 	<script>
 		function del_company(compa){
-			return confirm('Bạn có muốn xóa danh mục: '+compa)
+			return confirm('Bạn có muốn xóa: '+compa+' ?')
 		}
 	</script>
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class addJobRequest extends FormRequest
+class addJobsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,10 @@ class addJobRequest extends FormRequest
             'job_code'=>'required|unique:jobs,job_code|min:5',
             'job_name'=>'required|min:5',
             'salary'=>'required|numeric',
-            'location'=>'required',
-            'img'=>'image',
+            'experience'=>'required',
+            'nature'=>'required',
+            'address'=>'required',
+            'logo'=>'image',
         ];
     }
 
@@ -40,9 +42,12 @@ class addJobRequest extends FormRequest
             'job_code.min'=>'Mã Job phải ít nhất 5 kí tự!',
             'job_name.required'=>'Tên Job không được để trống!',
             'job_name.min'=>'Tên Job phải ít nhất 5 kí tự!',
+            'salary.required'=>'Mức lương không được để trống!',
             'salary.numeric'=>'Mức lương phải là dạng số!',
-            'location.required'=>'Địa điểm không được để trống!',
-            'img.image'=>'File phải là dạng ảnh!',
+            'experience.required'=>'Kinh nghiệm làm việc không được để trống!',
+            'nature.required'=>'Thời gian làm việc không được để trống!',
+            'address.required'=>'Địa điểm không được để trống!',
+            'logo.image'=>'File phải là dạng ảnh!',
         ];
     }
 }

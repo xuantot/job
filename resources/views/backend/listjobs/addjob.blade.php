@@ -23,57 +23,59 @@
                                         <div class="form-group">
                                             <label>Danh mục</label>
                                             <select name="category" class="form-control">
-                                                @foreach ($category as $key=> $item)
-                                                <option value='{{ $key }}'>{{ $item->name }}</option>
+                                                @foreach ($category as $item)
+                                                <option value='{{ $item->id }}'>{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Công ty</label>
                                             <select name="company" class="form-control">
-                                                @foreach ($company as $key=> $item)
-                                                <option value='{{ $key }}'>{{ $item->name }}</option>
+                                                @foreach ($company as $item)
+                                                <option value='{{ $item->id }}'>{{ $item->name }}</option>
                                                 @endforeach
                                                 
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Mã Job</label>
-                                            <input type="text" name="code" class="form-control">
-                                            @if ($errors->has('code'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    <strong>{{ $errors->first('code') }}</strong>
-                                                </div>
-                                            @endif
+                                            <input type="text" name="job_code" class="form-control">
+                                            {{ShowErrors($errors, 'job_code')}}
                                         </div>
                                         <div class="form-group">
                                             <label>Tên Job</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="job_name" class="form-control">
+                                            {{ShowErrors($errors, 'job_name')}}
                                         </div>
                                         <div class="form-group">
                                             <label>Mức lương mong muốn</label>
-                                            <input type="number" name="salary" class="form-control">
+                                            <input type="number" name="salary" min="0" class="form-control">
+                                            {{ShowErrors($errors, 'salary')}}
                                         </div>
                                         <div class="form-group">
                                             <label>Kinh nghiệm</label>
                                             <input type="text" name="experience" class="form-control">
+                                            {{ShowErrors($errors, 'experience')}}
                                         </div>
                                         
                                         <div class="form-group">
                                             <label>Thời gian làm việc</label>
                                             <input type="text" name="nature" class="form-control">
+                                            {{ShowErrors($errors, 'nature')}}
                                         </div>
                                         <div class="form-group">
                                             <label>Địa điểm</label>
                                             <input type="text" name="address" class="form-control">
+                                            {{ShowErrors($errors, 'address')}}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Logo</label>
-                                            <input id="img" type="file" name="img" class="form-control hidden"
+                                            <input id="img" type="file" name="logo" class="form-control hidden"
                                                 onchange="changeImg(this)">
                                             <img id="avatar" class="thumbnail" width="100%" height="350px" src="img/import-img.png">
+                                            {{ShowErrors($errors, 'logo')}}
                                         </div>
                                     </div>
                                     <div class="col-md-12">

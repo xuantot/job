@@ -54,9 +54,14 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'backend\jobController@getJob');
-        Route::get('/edit', 'backend\jobController@getEditJob');
+
+        Route::get('/edit/{id}', 'backend\jobController@getEditJob');
+        Route::post('/edit/{id}', 'backend\jobController@postEditJob');
+
         Route::get('/add', 'backend\jobController@getAddJob');
         Route::post('/add', 'backend\jobController@postAddJob');
+
+        Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');        
     });
 
     Route::group(['prefix' => 'user'], function () {
