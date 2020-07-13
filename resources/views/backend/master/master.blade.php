@@ -37,7 +37,7 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/chart-data.js"></script>
-	@yield('scrip')
+	@yield('script')
 
 </body>
 

@@ -8,7 +8,7 @@
         <li><a href="/admin/order"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad" /></svg> Order Job</a></li>
         <li role="presentation" class="divider"></li>
         <li><a href="/admin/user"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users Admin</a></li>
-        <li><a href="/admin/user/company"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users Company</a></li>
+        <li><a href="/admin/user/client"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users Client</a></li>
         <li><a href="/admin/user/candidate"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users Candidate</a></li>
     
     </ul>
