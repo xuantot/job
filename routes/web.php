@@ -69,12 +69,21 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', 'backend\userController@getUser');
+        Route::post('/', 'backend\userController@postUser');
         Route::get('/add', 'backend\userController@getAddUser');
-        Route::get('/edit', 'backend\userController@getEditUser');
+        Route::post('/add', 'backend\userController@postAddUser');
+        
+        Route::get('/edit/{id}', 'backend\userController@getEditUser');
+        Route::post('/edit/{id}', 'backend\userController@postEditUser');
+
+        Route::get('/delete/{id}', 'backend\userController@deleteUser');
+
         Route::get('/info', 'backend\userController@getInfoUser');
 
-        Route::get('/company', 'backend\userController@getUserCompany');
+        Route::get('/client', 'backend\userController@getUserClient');
+        Route::get('/client/delete/{id}', 'backend\userController@deleteClient');
         Route::get('/candidate', 'backend\userController@getUserCandidate');
+        Route::get('/candidate/delete/{id}', 'backend\userController@deleteCandidate');
     });
 
     Route::group(['prefix' => 'order'], function () {

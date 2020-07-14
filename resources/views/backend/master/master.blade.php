@@ -60,11 +60,15 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/chart-data.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@yield('script')
 =======
     @yield('scrip')
     @stack('js')
 >>>>>>> admin/category
+=======
+	@yield('script')
+>>>>>>> admin/user
 
 </body>
 

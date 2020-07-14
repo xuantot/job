@@ -11,6 +11,8 @@
         </div>
         <!--/.row-->
     <div class="row">
+        <form method="POST">
+            @csrf
         <div class="col-xs-12 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading"><i class="fas fa-user"></i> Thêm quản trị viên</div>
@@ -21,26 +23,28 @@
                              
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" name="email" class="form-control">
-                                  <div class="alert alert-danger" role="alert">
-                                      <strong>email đã tồn tại!</strong>
-                                  </div>
+                                    <input type="text" name="email" type="email" value="{{ old('email') }}" class="form-control">
+                                  {!! ShowError($errors,'email')  !!}
                                 </div>
                                 <div class="form-group">
                                     <label>password</label>
-                                    <input type="text" name="password" class="form-control">
+                                    <input type="text" name="password" class="form-control" value="{{ old('password') }}">
+                                    {!! ShowError($errors,'password')  !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Full name</label>
-                                    <input type="full" name="full" class="form-control">
+                                    <input type="full" name="name" class="form-control" value="{{ old('name') }}">
+                                    {!! ShowError($errors,'name')  !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input type="address" name="address" class="form-control">
+                                    <input type="address" name="address" class="form-control" value="{{ old('address') }}">
+                                    {!! ShowError($errors,'address')  !!}
                                 </div>
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <input type="phone" name="phone" class="form-control">
+                                    <input type="phone" name="phone" class="form-control" value="{{ old('phone') }}">
+                                    {!! ShowError($errors,'phone')  !!}
                                 </div>
                               
                                 <div class="form-group">
@@ -67,6 +71,9 @@
                 </div>
 
         </div>
+    
+    
+    </form>
     </div>
 
         <!--/.row-->
