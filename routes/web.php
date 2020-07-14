@@ -33,6 +33,7 @@ Route::group(['prefix' => ''], function () {
 
 // ---Backend
 Route::group(['prefix' => 'admin'], function () {
+<<<<<<< HEAD
 
     Route::get('/', 'backend\IndexController@getIndex');
 
@@ -90,9 +91,46 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'backend\OrderController@getOrder');
         Route::get('/detail', 'backend\OrderController@getDetailOrder');
         Route::get('/processed', 'backend\OrderController@getProcessedOrder');
+=======
+    Route::group(['prefix' => 'login'], function () {
+        Route::get('', 'backend\LoginController@getLogin');
+        Route::post('', 'backend\LoginController@login');
+        Route::get('registration','backend\LoginController@showRegistration');
+        Route::post('registration','backend\LoginController@registration');
+    });
+
+    Route::group(['middleware'=>'guest'], function () {
+        Route::get('/', 'backend\IndexController@getIndex');
+        Route::post('logout', 'backend\LoginController@logout');
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/', 'backend\categoryController@getCategory');
+            Route::get('/edit', 'backend\categoryController@getEditCategory');
+        });
+
+        Route::group(['prefix' => 'job'], function () {
+            Route::get('/', 'backend\jobController@getJob');
+            Route::get('/edit', 'backend\jobController@getEditJob');
+            Route::get('/add', 'backend\jobController@getAddJob');
+        });
+
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('/', 'backend\userController@getUser');
+            Route::get('/add', 'backend\userController@getAddUser');
+            Route::get('/edit', 'backend\userController@getEditUser');
+            Route::get('/info', 'backend\userController@getInfoUser');
+
+            Route::get('/company', 'backend\userController@getUserCompany');
+            Route::get('/candidate', 'backend\userController@getUserCandidate');
+        });
+
+        Route::group(['prefix' => 'order'], function () {
+            Route::get('/', 'backend\OrderController@getOrder');
+            Route::get('/detail', 'backend\OrderController@getDetailOrder');
+            Route::get('/processed', 'backend\OrderController@getProcessedOrder');
+        });
+>>>>>>> admin/login1
     });
 });
-
 
 
 // CMS
@@ -124,3 +162,7 @@ Route::group(['prefix' => 'company/cms'], function () {
 
 
 
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

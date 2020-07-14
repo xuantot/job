@@ -48,7 +48,11 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
+<<<<<<< HEAD
             'database' => env('thuc_tap', 'thuc_tap'),
+=======
+            'database' => env('jobs_portal', 'jobs_portal'),
+>>>>>>> admin/login1
             'username' => env('root', 'root'),
             'password' => env('', ''),
             'unix_socket' => env('DB_SOCKET', ''),
