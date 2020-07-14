@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class cmsJobController extends Controller
 {
     function getCmsJob(){
-        return view("cms.listjobs.listjob");
+        return view("cms.jobs.listjobs");
     }
     function getCmsJobAdd(){
         return view("cms.listjobs.addjob");
