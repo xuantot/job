@@ -29,7 +29,7 @@
                                     <div class="form-group">
                                         <label>Email</label>
                                         <input type="text" name="email" class="form-control" value="{{ $user->email }}">
-                                        {!! ShowError($errors,'email') !!}
+                                        {!! ShowErrors($errors,'email') !!}
                                     </div>
                                     <div class="form-group">
                                         <label>password</label>
@@ -39,17 +39,17 @@
                                     <div class="form-group">
                                         <label>Full name</label>
                                         <input type="full" name="name" class="form-control" value="{{ $user->name }}">
-                                        {!! ShowError($errors,'name') !!}
+                                        {!! ShowErrors($errors,'name') !!}
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="address" name="address" class="form-control" value="{{ $user->address }}">
-                                        {!! ShowError($errors,'address') !!}
+                                        {!! ShowErrors($errors,'address') !!}
                                     </div>
                                     <div class="form-group">
                                         <label>Phone</label>
                                         <input type="phone" name="phone" class="form-control" value="{{ $user->phone }}">
-                                        {!! ShowError($errors,'phone') !!}
+                                        {!! ShowErrors($errors,'phone') !!}
                                     </div>
                                 
                                     <div class="form-group">
