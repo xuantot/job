@@ -53,16 +53,6 @@
 										</tr>
 									</thead>
 									<tbody>
-<<<<<<< HEAD
-									@foreach ($clients as  $item)
-										<tr>
-											<td>{{ $item->id }}</td>
-											<td>{{ $item->email }}</td>
-											<td>{{ $item->name }}</td>
-											<td>{{ $item->company->name }}</td>
-											<td>{{ $item->address }}</td>
-											<td>{{ $item->phone }}</td>
-=======
 									@foreach ($customer as $cus)
 										
 									
@@ -73,29 +63,18 @@
 											<td>{{ $cus->company->name }}</td>
 											<td>{{ $cus->address }}</td>
                                             <td>{{ $cus->phone }}</td>
->>>>>>> admin/user
 											<td>
 												<a onclick="return delete_userClient('{{ $cus->id }}')" href="/admin/user/client/delete/{{ $cus->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>
-<<<<<<< HEAD
-									@endforeach
-										
-
-=======
 										@endforeach
                                         
 								
->>>>>>> admin/user
 									</tbody>
 								</table>
 								<div align='right'>
 									<ul class="pagination">
-<<<<<<< HEAD
-										{{$clients->links()}}
-=======
 										{{$customer->links()}}
->>>>>>> admin/user
 									</ul>
 								</div>
 							</div>

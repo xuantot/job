@@ -4,12 +4,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Requests\{users_adminRequest,EditUsers_adminRequest};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\Entities\customer;
-
-=======
 use App\Entities\{Users_admin,customer,company};
->>>>>>> admin/user
 class userController extends Controller
 {
 
@@ -64,16 +59,8 @@ class userController extends Controller
 
 
 
-<<<<<<< HEAD
-    // Client
-    function getUserCompany(){
-        $data['clients']=customer::where('type',1)->paginate(5);
-        return view('backend.usersClient.listuserclient',$data);
-    }
-=======
     // Client Danh sach nha tuyen dung
     function getUserClient(){
->>>>>>> admin/user
 
         $data['customer']=customer::where('type',1)->paginate(5);
         return view('backend.usersClient.listuserclient',$data);
@@ -84,11 +71,7 @@ class userController extends Controller
     }
     // Danh sach ung vien
     function getUserCandidate(){
-<<<<<<< HEAD
-        $data['candidate']=customer::where('type',2)->paginate(5);
-=======
         $data['customer']=customer::where('type',2)->paginate(5);
->>>>>>> admin/user
         return view('backend.usersCandidate.listusercandidate',$data);
     }
     function deleteCandidate($id){

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class customer extends Model
 {
-<<<<<<< HEAD
     protected $table="customer";
     public $timestamps=false;
     public function cv()
@@ -23,19 +22,4 @@ class customer extends Model
     {
         return $this->belongsToMany('App\Entities\jobs', 'customer','customer_id', 'jobs_id');
     }
-=======
-    //
-    protected $table='customer';
-    public $timestamps=false;
-    
-   
-   public function company()
-   {
-       return $this->belongsTo('App\Entities\company', 'company_id', 'id');
-   }
-   
-  
-   
-    
->>>>>>> admin/user
 }
