@@ -45,41 +45,26 @@
 										</tr>
 									</thead>
 									<tbody>
-									
+									@foreach ($candidate as $item)
 										<tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Admin</td>
-											<td>Hà Nội</td>
-                                            <td>0147258369</td>
+											<td>{{ $item->id }}</td>
+											<td>{{ $item->email }}</td>
+											<td>{{ $item->name }}</td>
+											<td>{{ $item->address }}</td>
+                                            <td>{{ $item->phone }}</td>
                                            
 											<td>
 												
 												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
                                         </tr>
-                                        <tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Admin</td>
-											<td>Hà Nội</td>
-                                            <td>0147258369</td>
-                                      
-											<td>
-												
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr>
-								
+									@endforeach
+									
 									</tbody>
 								</table>
 								<div align='right'>
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
+										{{$candidate->links()}}
 									</ul>
 								</div>
 							</div>

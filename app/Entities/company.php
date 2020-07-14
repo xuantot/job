@@ -15,6 +15,6 @@ class company extends Model
 
     public function customer()
     {
-        return $this->hasMany('App\Entities\jobs', 'customer_id', 'id');
+        return $this->hasMany('App\Entities\customer', 'customer_id', 'id');
     }
 }

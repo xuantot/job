@@ -37,6 +37,9 @@
                                 <div class="d-none d-lg-block">
                                     <a class="boxed-btn3" href="/company/cms">Post a Job</a>
                                 </div>
+                                <div class="phone_num d-none d-xl-block" align="left">
+                                    <a href="#" style="padding-left: 15px;">Log out</a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">

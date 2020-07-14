@@ -63,11 +63,6 @@
                                             <input type="text" name="nature" class="form-control">
                                             {{ShowErrors($errors, 'nature')}}
                                         </div>
-                                        <div class="form-group">
-                                            <label>Địa điểm</label>
-                                            <input type="text" name="address" class="form-control">
-                                            {{ShowErrors($errors, 'address')}}
-                                        </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">

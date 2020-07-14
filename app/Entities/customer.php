@@ -20,6 +20,6 @@ class customer extends Model
 
     public function jobs()
     {
-        return $this->belongsToMany('App\Entities\company', 'customer','customer_id', 'jobs_id');
+        return $this->belongsToMany('App\Entities\jobs', 'customer','customer_id', 'jobs_id');
     }
 }

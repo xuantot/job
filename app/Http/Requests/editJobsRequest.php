@@ -29,7 +29,7 @@ class editJobsRequest extends FormRequest
             'salary'=>'required|numeric',
             'experience'=>'required',
             'nature'=>'required',
-            'address'=>'required',
+            
             'logo'=>'image',
         ];
     }
@@ -46,7 +46,7 @@ class editJobsRequest extends FormRequest
             'salary.numeric'=>'Mức lương phải là dạng số!',
             'experience.required'=>'Kinh nghiệm làm việc không được để trống!',
             'nature.required'=>'Thời gian làm việc không được để trống!',
-            'address.required'=>'Địa điểm không được để trống!',
+            
             'logo.image'=>'File phải là dạng ảnh!',
         ];
     }

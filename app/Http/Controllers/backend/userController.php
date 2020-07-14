@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Entities\customer;
 
 class userController extends Controller
 {
@@ -27,11 +28,13 @@ class userController extends Controller
 
     // Client
     function getUserCompany(){
-        return view('backend.usersClient.listuserclient');
+        $data['clients']=customer::where('type',1)->paginate(5);
+        return view('backend.usersClient.listuserclient',$data);
     }
 
     function getUserCandidate(){
-        return view('backend.usersCandidate.listusercandidate');
+        $data['candidate']=customer::where('type',2)->paginate(5);
+        return view('backend.usersCandidate.listusercandidate',$data);
     }
 
 
