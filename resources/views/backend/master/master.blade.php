@@ -11,7 +11,7 @@
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 
-	
+
 
 	<!--Icons-->
 	<script src="js/lumino.glyphs.js"></script>
@@ -29,7 +29,29 @@
 	@yield('content')
 	<!--end main-->
 
-	<!-- javascript -->
+    <!-- javascript -->
+    <!-- jQuery -->
+	<script src="/backend/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/backend/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/backend/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/backend/js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="/backend/js/jquery.flexslider-min.js"></script>
+
+	<script src="/backend/js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="/backend/js/jquery.magnific-popup.min.js"></script>
+	<script src="/backend/js/magnific-popup-options.js"></script>
+
+<!-- Stellar Parallax -->
+	<script src="/backend/js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="/backend/js/main.js"></script>
+
+
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
@@ -37,7 +59,12 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/chart-data.js"></script>
+<<<<<<< HEAD
 	@yield('script')
+=======
+    @yield('scrip')
+    @stack('js')
+>>>>>>> admin/category
 
 </body>
 
