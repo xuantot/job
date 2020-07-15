@@ -66,7 +66,7 @@ class loginController extends Controller
         $user->address =$request->address;
         $user->phone =$request->phone;
         $user->password = bcrypt($request->password);
-        $user->level = 0;
+        $user->level = 2;
         $user->save();
         return redirect("/admin/login");
     }

@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 @section('title', "Add Job")
     
+@section('job')
+class="active";
+@endsection
 @section('content')
     
 

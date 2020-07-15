@@ -1,5 +1,8 @@
 @extends('backend.master.master')
 @section('title', "Update Company")
+@section('company')
+class="active";
+@endsection
 
 @section('content')
 

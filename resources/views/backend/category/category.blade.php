@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 @section('title', "Danh mục Job")
 
+@section('category')
+class="active";
+@endsection
 @section('content')
 
 

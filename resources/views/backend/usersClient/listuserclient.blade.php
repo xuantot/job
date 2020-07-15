@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 
 @section('title', "Danh sách nhà tuyển dụng")
+@section('user_client')
+class="active";
+@endsection
 	
 @section('content')
 	

@@ -1,5 +1,8 @@
 @extends('backend.master.master')
 @section('title', "Danh sách Công ty")
+@section('company')
+class="active";
+@endsection
 
 @section('content')
 	

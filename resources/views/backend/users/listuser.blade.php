@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 
 @section('title', "Danh sách quản trị viên")
+@section('user')
+class="active";
+@endsection
 	
 @section('content')
 	

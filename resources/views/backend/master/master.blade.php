@@ -31,7 +31,7 @@
 
     <!-- javascript -->
     <!-- jQuery -->
-	<script src="/backend/js/jquery.min.js"></script>
+	{{-- <script src="/backend/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="/backend/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
@@ -49,16 +49,16 @@
 <!-- Stellar Parallax -->
 	<script src="/backend/js/jquery.stellar.min.js"></script>
 	<!-- Main -->
-	<script src="/backend/js/main.js"></script>
+	<script src="/backend/js/main.js"></script> --}}
 
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
+	{{-- <script src="js/chart.min.js"></script>
 	<script src="js/easypiechart.js"></script>
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
-	<script src="js/chart-data.js"></script>
+	<script src="js/chart-data.js"></script> --}}
 
 	@yield('script')
 

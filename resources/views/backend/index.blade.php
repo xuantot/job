@@ -1,5 +1,8 @@
 @extends('backend.master.master')
 @section('title', "Quản trị - Job")
+@section('admin')
+class="active";
+@endsection
 
 
 @section('content')

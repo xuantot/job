@@ -22,6 +22,7 @@ class CreateUsersAdminTable extends Migration
             $table->string('phone')->nullable();
             $table->tinyInteger('level');
             $table->string('remember_token', 100)->nullable();
+            $table->timestamps();
         });
     }
 
