@@ -20,9 +20,6 @@ Route::group(['prefix' => ''], function () {
     Route::get('/', 'frontend\IndexController@getIndex');
     Route::get('/contact', 'frontend\IndexController@getContact');
 
-    Route::get('/login', 'frontend\loginController@getLogin');
-    Route::get('/newaccount', 'frontend\loginController@getAccount');
-
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'frontend\jobController@getJob');
         Route::get('/detail', 'frontend\jobController@getJobDetail');

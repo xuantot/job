@@ -43,7 +43,7 @@ class categoryController extends Controller
         return view("backend.category.editcategory", compact('category'));
     }
 
-    public function updateCategory(UpdateCategoryRequest $request, Category $id)
+    public function updateCategory(UpdateCategoryRequest $request, $id)
     {
         // $request->validate(
         // [
@@ -55,8 +55,9 @@ class categoryController extends Controller
         //     'name.max' => 'Nội dung phải ngắn hơn 100 ký tự',
 
         // ]);
-        $id->fill($request->only(['name']));
-        $id->save();
+        $cate=Category::find($id);
+        $cate->name=$request->name;
+        $cate->save();
         return redirect('/admin/category')->with('success', 'Đã cập nhật.');
 
     }
