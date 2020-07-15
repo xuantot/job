@@ -101,6 +101,24 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+// CMS
+
+Route::group(['prefix' => 'company/cms'], function () {
+
+    Route::get('/', 'cms\cmsController@getCms');
+
+    Route::get('/login', 'cms\cmsLoginController@getLogin');
+    Route::get('/new-account', 'cms\cmsLoginController@getAccount');
+    
+    Route::get('/company', 'cms\cmsCompanyController@getCompany');
+
+    Route::group(['prefix' => 'job'], function () {
+        Route::get('/', 'cms\cmsJobController@getCmsJob');
+        Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
+        Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
+    });
+
+});
 
 
 
