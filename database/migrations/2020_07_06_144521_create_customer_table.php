@@ -23,7 +23,8 @@ class CreateCustomerTable extends Migration
             $table->tinyInteger('type');
             $table->string('remember_token', 100)->nullable();
             $table->integer('company_id')->unsigned()->nullable();
-            $table->foreign('company_id')->references('id')->on('company')->onDelete('cascade');          
+            $table->foreign('company_id')->references('id')->on('company')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

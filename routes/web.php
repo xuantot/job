@@ -68,7 +68,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/add', 'backend\jobController@getAddJob');
             Route::post('/add', 'backend\jobController@postAddJob');
 
-            Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');        
+            Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');
         });
 
         Route::group(['prefix' => 'user'], function () {
@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('/', 'backend\userController@postUser');
             Route::get('/add', 'backend\userController@getAddUser');
             Route::post('/add', 'backend\userController@postAddUser');
-            
+
             Route::get('/edit/{id}', 'backend\userController@getEditUser');
             Route::post('/edit/{id}', 'backend\userController@postEditUser');
 
@@ -102,20 +102,35 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'company/cms'], function () {
 
-    Route::get('/', 'cms\cmsController@getCms');
+    Route::group(['prefix' => 'login'], function () {
+        Route::get('', 'cms\cmsLoginController@showLoginForm');
+        Route::post('', 'cms\cmsLoginController@login');
+        Route::get('new-account','cms\cmsLoginController@showRegistration');
+        Route::post('new-account','cms\cmsLoginController@registration');
 
-    Route::get('/login', 'cms\cmsLoginController@getLogin');
-    Route::get('/new-account', 'cms\cmsLoginController@getAccount');
-    
-    Route::get('/company', 'cms\cmsCompanyController@getCompany');
+        Route::get('forget_password', 'cms\cmsLoginController@showFormForgetPassword');
+        Route::post('forget_password', 'cms\cmsLoginController@sendCodeResetPassword');
+        Route::get('reset_password', 'cms\cmsLoginController@resetPassword')->name('link.reset.password');
+        Route::post('reset_password', 'cms\cmsLoginController@saveResetPassword')->name('link.saveResetPassword');
 
-    Route::group(['prefix' => 'job'], function () {
+    });
+
+
+
+    Route::group(['middleware'=>'checkLevelCustomer'], function (){
+        Route::get('/', 'cms\cmsController@getCms');
+        Route::post('logout', 'cms\cmsLoginController@logout');
+        Route::get('/company', 'cms\cmsCompanyController@getCompany');
+        Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'cms\cmsJobController@getCmsJob');
         Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
         Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
+        });
     });
-
 });
+
+
+
 
 
 
