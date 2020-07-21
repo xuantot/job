@@ -122,38 +122,23 @@ Route::group(['prefix' => 'company/cms'], function () {
         Route::post('logout', 'cms\cmsLoginController@logout');
         Route::get('/company', 'cms\cmsCompanyController@getCompany');
         Route::group(['prefix' => 'job'], function () {
-        Route::get('/', 'cms\cmsJobController@getCmsJob');
-        Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
-<<<<<<< HEAD
-        Route::post('/add', 'cms\cmsJobController@postCmsJobAdd');
-=======
-        Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
+            Route::get('/', 'cms\cmsJobController@getCmsJob');
+            Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
+            Route::post('/add', 'cms\cmsJobController@postCmsJobAdd');
+            Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
+
+            Route::get('/edit/{id}', 'cms\cmsJobController@getCmsJobEdit');
+            Route::post('/edit/{id}', 'cms\cmsJobController@postCmsJobEdit');
+
+            Route::get('/queue', 'cms\cmsJobController@getCmsJobQueue');
+
+            Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');   
         });
     });
+
 });
-
-
-
-
-
-
->>>>>>> permission/cms
-
-        Route::get('/edit/{id}', 'cms\cmsJobController@getCmsJobEdit');
-        Route::post('/edit/{id}', 'cms\cmsJobController@postCmsJobEdit');
-
-        Route::get('/queue', 'cms\cmsJobController@getCmsJobQueue');
-
-        Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');   
-
-    });
-
-<<<<<<< HEAD
-});
-=======
 
 
 
 //Auth::routes();
->>>>>>> permission/cms
 
