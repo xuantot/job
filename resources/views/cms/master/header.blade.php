@@ -45,7 +45,10 @@
                                     <a class="boxed-btn3" href="/company/cms/job">Post a Job</a>
                                 </div>
                                 <div class="phone_num d-none d-xl-block">
-                                    <a href="#" style="margin-left: 11px;">Log out</a>
+                                    <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit()" style="margin-left: 11px;">Log out</a>
+                                    <form action="/company/cms/logout" method="POST" id="logout-form">
+                                        @csrf
+                                    </form>
                                 </div>
                             </div>
                         </div>

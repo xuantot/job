@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class cmsController extends Controller
 {
     function getCms(){
-        return "Index cms";
+        return view('cms.jobs.listjobs');
     }
 }
