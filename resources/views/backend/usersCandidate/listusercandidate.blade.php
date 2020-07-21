@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 
 @section('title', "Danh sách ứng viên")
+@section('user_candidate')
+class="active";
+@endsection
 	
 @section('content')
 	
@@ -21,13 +24,23 @@
 				<h1 class="page-header">Danh sách ứng viên</h1>
 			</div>
 		</div>
+		@if(session('thongbao'))
+								<div class="alert bg-success" role="alert">
+									<svg class="glyph stroked checkmark">
+										<use xlink:href="#stroked-checkmark"></use>
+									</svg>{{ session('thongbao') }}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+								</div>
+								@endif
 		<!--/.row-->
 
+	
+
 		<div class="row">
+
 			<div class="col-xs-12 col-md-12 col-lg-12">
 
 				<div class="panel panel-primary">
-
+					
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
@@ -37,7 +50,7 @@
 										<tr class="bg-primary">
 											<th>ID</th>
 											<th>Email</th>
-											<th>Full</th>
+											<th>Name</th>
 											<th>Address</th>
                                             <th>Phone</th>
                                         
@@ -45,41 +58,28 @@
 										</tr>
 									</thead>
 									<tbody>
-									
+										@foreach ($customer as $cus)
 										<tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Admin</td>
-											<td>Hà Nội</td>
-                                            <td>0147258369</td>
-                                           
+										
+										 <td>{{ $cus->id }}</td>
+											<td>{{ $cus->email }}</td>
+											<td>{{ $cus->name}}</td>
+											<td>{{ $cus->address }}</td>
+                                            <td>{{ $cus->phone }}</td>
 											<td>
 												
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
+												<a  onclick="return delete_userCandidate('{{ $cus->id }}')" href="/admin/user/candidate/delete/{{$cus->id}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+											</td>	
+										
+											
                                         </tr>
-                                        <tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Admin</td>
-											<td>Hà Nội</td>
-                                            <td>0147258369</td>
-                                      
-											<td>
-												
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr>
+									@endforeach
 								
 									</tbody>
 								</table>
 								<div align='right'>
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
+										{{$customer->links()}}
 									</ul>
 								</div>
 							</div>
@@ -87,10 +87,21 @@
 						</div>
 
 					</div>
-				</div>
+				
+			</div>
 				<!--/.row-->
 
 
 			</div>
 @endsection
 
+@section('script')
+@parent
+<script>
+	function delete_userCandidate(name)
+	{
+		return confirm("Bạn muốn xóa ứng viên:"+name+"?");
+	}
+</script>
+	
+@endsection

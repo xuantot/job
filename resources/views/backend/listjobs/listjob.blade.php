@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 @section('title', "List Job")
-    
+	
+@section('job')
+class="active";
+@endsection
 @section('content')
 
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -25,15 +28,14 @@
 			<div class="col-xs-12 col-md-12 col-lg-12">
 
 				<div class="panel panel-primary">
-
+					@if (session('thongbao'))
+						<div class="alert alert-success" role="alert">
+							<strong>{{ session('thongbao') }}</strong>
+						</div>
+					@endif
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<div class="alert bg-success" role="alert">
-									<svg class="glyph stroked checkmark">
-										<use xlink:href="#stroked-checkmark"></use>
-									</svg>Đã thêm thành công<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-								</div>
 								<a href="/admin/job/add" class="btn btn-primary">Thêm Job</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 
@@ -41,73 +43,48 @@
 										<tr class="bg-primary">
 											<th>ID</th>
 											<th>Thông tin Job</th>
+											<th>Tên công ty</th>
 											<th>Mức lương</th>
-											<th>Vị trí tuyển dụng</th>
 											<th>Danh mục</th>
 											<th>Tùy chọn</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>
-												<div class="row">
-													<div class="col-md-3"><img src="img/1.svg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
-													<div class="col-md-9">
-														<p><strong>Mã Job : JB01</strong></p>
-														<p>Tên sản phẩm : Creative Designer</p>
-														
-														<p>Địa điểm: California, USA</p>
-														<p>Thời gian: Part-time</p>
-							
+										@foreach ($jobs as $row)
+											<tr>
+												<td>{{ $row->id }}</td>
+												<td>
+													<div class="row">
+														<div class="col-md-3"><img src="img/{{ $row->logo }}"  width="100px" class="thumbnail"></div>
+														<div class="col-md-9" style="padding-left: 30px">
+															<p><strong>Mã Job : {{ $row->job_code }}</strong></p>
+															<p>Tên sản phẩm : {{ $row->job_name }}</p>
+															<p>Kinh nghiệm làm việc: {{ $row->experience }}</p>
+															
+															<p>Thời gian: {{ $row->nature }}</p>
+															<p>Địa điểm: {{ $row->company->address }}</p>
+								
+														</div>
 													</div>
-												</div>
-											</td>
-											<td>20000000VNĐ</td>
-											<td>
-												Leader
-											</td>
-											<td>Software &amp; Web</td>
-											<td>
-												<a href="/admin/job/edit" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>
-												<div class="row">
-													<div class="col-md-3"><img src="img/2.svg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
-													<div class="col-md-9">
-														<p><strong>Mã Job : JB02</strong></p>
-														<p>Tên sản phẩm : Creative Designer</p>
-														
-														<p>Địa điểm: California, USA</p>
-														<p>Thời gian: Part-time</p>
-							
-													</div>
-												</div>
-											</td>
-											<td>20000000VNĐ</td>
-											<td>
-												Leader
-											</td>
-											<td>Software &amp; Web</td>
-											<td>
-												<a href="/admin/job/edit" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-										</tr>
+												</td>
+												<td>
+													{{ $row->company->name }}
+												</td>
+												<td>{{ number_format($row->salary,0,'','.') }}VNĐ</td>
+												
+												<td>{{ $row->category->name }}</td>
+												<td>
+													<a href="/admin/job/edit/{{ $row->id }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+													<a onclick='return del_company("{{ $row->job_name }}")' href="/admin/job/delete/{{ $row->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+												</td>
+											</tr>
+										@endforeach
 
 									</tbody>
 								</table>
 								<div align='right'>
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
+										{{ $jobs->links() }}
 									</ul>
 								</div>
 							</div>
@@ -123,6 +100,11 @@
 			<!--end main-->
 		</div>
 	</div>
+	<script>
+		function del_company(compa){
+			return confirm('Bạn có muốn xóa job: '+compa+' ?')
+		}
+	</script>
 
 @endsection
 

@@ -1,6 +1,9 @@
 @extends('backend.master.master')
 
 @section('title', "Danh sách nhà tuyển dụng")
+@section('user_client')
+class="active";
+@endsection
 	
 @section('content')
 	
@@ -14,6 +17,13 @@
 				<li class="active">Danh sách nhà tuyển dụng</li>
 			</ol>
 		</div>
+		@if(session('thongbao'))
+								<div class="alert bg-success" role="alert">
+									<svg class="glyph stroked checkmark">
+										<use xlink:href="#stroked-checkmark"></use>
+									</svg>{{ session('thongbao') }}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+								</div>
+								@endif
 		<!--/.row-->
 
 		<div class="row">
@@ -38,44 +48,36 @@
 										<tr class="bg-primary">
 											<th>ID</th>
 											<th>Email</th>
+											<th>Name</th>
 											<th>Tên công ty</th>
 											<th>Address</th>
-                                            <th>Hotline</th>
+                                            <th>Phone</th>
 											<th width='18%'>Tùy chọn</th>
 										</tr>
 									</thead>
 									<tbody>
+									@foreach ($customer as $cus)
+										
 									
 										<tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Công ty TNHH Hà Nội</td>
-											<td>Hà Nội</td>
-                                            <td>0147258369</td>
+											<td>{{ $cus->id }}</td>
+											<td>{{ $cus->email }}</td>
+											<td>{{ $cus->name }}</td>
+											<td>{{ $cus->company->name }}</td>
+											<td>{{ $cus->address }}</td>
+                                            <td>{{ $cus->phone }}</td>
 											<td>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>
-                                        </tr>
-                                        <tr>
-											<td>1</td>
-											<td>Admin@gmail.com</td>
-											<td>Công ty TNHH Hà Nội</td>
-											<td>Hà Nội</td>
-                                            <td>0147258369</td>
-											<td>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+												<a onclick="return delete_userClient('{{ $cus->id }}')" href="/admin/user/client/delete/{{ $cus->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>
+										@endforeach
+                                        
 								
 									</tbody>
 								</table>
 								<div align='right'>
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
+										{{$customer->links()}}
 									</ul>
 								</div>
 							</div>
@@ -90,3 +92,13 @@
 			</div>
 @endsection
 
+@section('script')
+@parent
+<script>
+	function delete_userClient(name)
+	{
+		return confirm("Bạn muốn xóa ứng viên:"+name+"?");
+	}
+</script>
+	
+@endsection

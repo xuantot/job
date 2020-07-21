@@ -11,9 +11,9 @@ class cmsJobController extends Controller
         return view("cms.jobs.listjobs");
     }
     function getCmsJobAdd(){
-        return view("cms.listjobs.addjob");
+        return view("cms.jobs.addjob");
     }
     function getCmsJobEdit(){
-        return view("cms.listjobs.editjob");
+        return view("cms.jobs.editjob");
     }
 }

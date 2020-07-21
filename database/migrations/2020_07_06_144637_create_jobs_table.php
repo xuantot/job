@@ -27,6 +27,7 @@ class CreateJobsTable extends Migration
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
             $table->integer('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('company')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

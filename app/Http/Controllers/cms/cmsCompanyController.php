@@ -1,14 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\cms;
+<<<<<<< HEAD
 use App\Entities\{company,customer};
 use Auth;
 use App\Http\Requests\companyRequest;
+=======
+
+>>>>>>> permission/cms
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class cmsCompanyController extends Controller
 {
+<<<<<<< HEAD
     //
     function getCompany(){
         $data['company']=company::paginate(5);
@@ -35,5 +40,9 @@ class cmsCompanyController extends Controller
         $data->save();
         return redirect('company/cms/company/')->with('thongbao','Đã cập nhật thông tin công ty');
         
+=======
+    function getCompany(){
+        return "Update Info Company";
+>>>>>>> permission/cms
     }
 }
