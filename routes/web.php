@@ -86,6 +86,18 @@ Route::group(['prefix' => 'company/cms'], function () {
         Route::get('/', 'cms\cmsOrderController@getCmsOrder');
         Route::get('/processed', 'cms\cmsOrderController@getCmsOrderProcessed');
     });
+    Route::group(['prefix' => 'company'], function () {
+        Route::get('/', 'cms\cmsCompanyController@getCompany');
+        Route::post('/', 'cms\cmsCompanyController@updateCompany');
+        Route::get('/add', 'cms\cmsCompanyController@addCompany');
+        Route::post('/add', 'cms\cmsCompanyController@postaddCompany');
+        
+        // Route::post('/company/{id}', 'cms\cmsCompanyController@postCompany');
+    });
+    
+    
+   
+    
 
 });
 
