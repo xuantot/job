@@ -30,7 +30,7 @@ class editJobsRequest extends FormRequest
             'experience'=>'required',
             'nature'=>'required',
             
-            'logo'=>'image',
+            // 'logo'=>'image',
         ];
     }
 

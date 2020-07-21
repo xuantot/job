@@ -35,7 +35,7 @@
                                     <a href="/company/cms/login">Log in</a>
                                 </div>
                                 <div class="d-none d-lg-block">
-                                    <a class="boxed-btn3" href="/company/cms">Post a Job</a>
+                                    <a class="boxed-btn3" href="/company/cms/job">Post a Job</a>
                                 </div>
                                 <div class="phone_num d-none d-xl-block" align="left">
                                     <a href="#" style="padding-left: 15px;">Log out</a>

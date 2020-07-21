@@ -15,7 +15,7 @@
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	{{-- <link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/themify-icons.css">
@@ -23,8 +23,9 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/gijgo.css">
 	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/slicknav.css">
+	<link rel="stylesheet" href="css/slicknav.css"> --}}
 	<link rel="stylesheet" href="css/style.css">
+	
 	<!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -51,10 +52,10 @@
     <!--/ footer end  -->
 
 	<!-- JS here -->
-	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+	{{-- <script src="js/vendor/modernizr-3.5.0.min.js"></script>
 	<script src="js/vendor/jquery-1.12.4.min.js"></script>
 	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/isotope.pkgd.min.js"></script>
 	<script src="js/ajax-form.js"></script>
@@ -75,9 +76,11 @@
 	<script src="js/jquery.ajaxchimp.min.js"></script>
 	<script src="js/jquery.form.js"></script>
 	<script src="js/jquery.validate.min.js"></script>
-	<script src="js/mail-script.js"></script>
-
+	<script src="js/mail-script.js"></script> --}}
+<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	@yield('script')
     <script>
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',

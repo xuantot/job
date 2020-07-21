@@ -112,21 +112,16 @@ Route::group(['prefix' => 'company/cms'], function () {
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'cms\cmsJobController@getCmsJob');
         Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
-        Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
+        Route::post('/add', 'cms\cmsJobController@postCmsJobAdd');
+
+        Route::get('/edit/{id}', 'cms\cmsJobController@getCmsJobEdit');
+        Route::post('/edit/{id}', 'cms\cmsJobController@postCmsJobEdit');
+
+        Route::get('/queue', 'cms\cmsJobController@getCmsJobQueue');
+
+        Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');   
+
     });
 
 });
 
-
-
-
-
-
-
-
-
-
-
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
