@@ -20,6 +20,15 @@
                          
                             <form  method="post">
                                 @csrf
+                                <div class="form-group">
+                                    <label>Mã số công ty</label>
+                                    <input type="code" name="code" class="form-control">
+                                    @if($errors->has('code'))
+                                    <div class="alert alert-danger" role="alert">
+                                    <strong>{{$errors->first('code')}}</strong>
+                                    </div>
+                                    @endif
+                                </div>
                             <div class="form-group">
                                 <label>Tên công ty</label>
                                 <input type="full" name="name" class="form-control">

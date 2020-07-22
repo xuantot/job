@@ -126,14 +126,11 @@ Route::group(['prefix' => 'company/cms'], function () {
         Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
         Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
         });
-    });
-});
+    
 
 
 
 
-
-<<<<<<< HEAD
     Route::group(['prefix' => 'order'], function () {
         Route::get('/', 'cms\cmsOrderController@getCmsOrder');
         Route::get('/processed', 'cms\cmsOrderController@getCmsOrderProcessed');
@@ -141,17 +138,18 @@ Route::group(['prefix' => 'company/cms'], function () {
     Route::group(['prefix' => 'company'], function () {
         Route::get('/', 'cms\cmsCompanyController@getCompany');
         Route::post('/', 'cms\cmsCompanyController@updateCompany');
+        Route::post('/', 'cms\cmsCompanyController@searchsCompany');
         Route::get('/add', 'cms\cmsCompanyController@addCompany');
         Route::post('/add', 'cms\cmsCompanyController@postaddCompany');
         
         // Route::post('/company/{id}', 'cms\cmsCompanyController@postCompany');
     });
-    
-    
+    });
+
+ });
+   
    
     
-=======
->>>>>>> permission/cms
 
 
 

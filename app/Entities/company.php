@@ -6,17 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class company extends Model
 {
-<<<<<<< HEAD
-    //
-    protected $table='company'; 
-    public $timestamps =false;
     
-    public function customer()
-    {
-        return $this->hasMany('App\Entities\customer', 'company_id', 'id');
-    }
     
-=======
     protected $table="company";
     public $timestamps=false;
     public function jobs()
@@ -28,5 +19,4 @@ class company extends Model
     {
         return $this->hasMany('App\Entities\customer', 'customer_id', 'id');
     }
->>>>>>> permission/cms
 }

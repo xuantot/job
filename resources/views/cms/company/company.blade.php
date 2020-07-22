@@ -1,9 +1,8 @@
 @extends('cms.master.master')
 @section('title',"Company")
 @section('content')
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-    
- 
+<div class="col-md-10">
+<div class="col-sm-12 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <div class="row">
         <div class="col-lg-12">
@@ -18,8 +17,29 @@
    
 
     <div class="row"style="width:100%;" >
-        <div class="col-xs-12 col-md-12 col-lg-12">
-
+        <div class=" col-md-12 ">
+            <form action="" method="post">
+                @csrf
+            <div class="catagory_area" style="padding-top: 20px;padding-bottom: 20px;">
+                        <div class="container">
+                            <div class="row cat_search">
+                                <div class="col-lg-9 col-md-4">
+                                    <div class="single_input">
+                                        <input name="company" type="text" placeholder="Search keyword">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="job_btn">
+                                        <button type="submit" class="boxed-btn3">Find Company</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+            </form>
             <div class="panel panel-primary">
 
                 
@@ -86,4 +106,6 @@
         </div>
         </div>
     </div>
+</div>
+</div>
 @endsection
