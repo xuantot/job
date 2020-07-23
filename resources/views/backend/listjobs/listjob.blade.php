@@ -59,6 +59,7 @@ class="active";
 														<div class="col-md-9" style="padding-left: 30px">
 															<p><strong>Mã Job : {{ $row->job_code }}</strong></p>
 															<p>Tên sản phẩm : {{ $row->job_name }}</p>
+															
 															<p>Kinh nghiệm làm việc: {{ $row->experience }}</p>
 															
 															<p>Thời gian: {{ $row->nature }}</p>

@@ -11,24 +11,30 @@ use App\Http\Requests\editJobsRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Entities\customer_jobs;
+use App\Entities\company;
 
 class cmsJobController extends Controller
 {
     function getCmsJob(){
+        if(Auth::guard('customer_web')->user()->company_id==NULL){
+            return redirect("/company/cms/company")->with('thongbao','Vui lòng chọn công ty trước khi đăng bài');
+        }else{
         $customer=Auth::guard('customer_web')->user();
         $data['jobs']=$customer->jobs()->where('status',0)->paginate(5);
-        //dd($data)->all();
-        
         return view("cms.jobs.listjobs",$data);
+        }
     }
 
     function getCmsJobAdd(){
-        $data['category']=Category::all();
-        return view("cms.jobs.addjob",$data);
+        
+            $data['category']=Category::all();
+            $data['company']=company::find(Auth::guard('customer_web')->user()->company_id);
+            return view("cms.jobs.addjob",$data);
+        
+        
     }
     function postCmsJobAdd(addJobsRequest $r){
-        $customer=Auth::guard('customer_web')->user();
-        $cus_id=Auth::guard('customer_web')->user()->id;
+
         $job = new jobs;
         $job->job_code=$r->job_code;
         $job->job_name=$r->job_name;
@@ -47,12 +53,15 @@ class cmsJobController extends Controller
         }
         $job->status=1;
         $job->category_id=$r->category;
-        $job->company_id=1;
+      
+
+        $job->company_id=Auth::guard('customer_web')->user()->company_id;
+        
         $job->save();
 
         $customer_jobs=new customer_jobs;
         $customer_jobs->jobs_id=$job->id;
-        $customer_jobs->customer_id=$cus_id;
+        $customer_jobs->customer_id=Auth::guard('customer_web')->user()->id;
         $customer_jobs->save();
 
 
@@ -66,6 +75,7 @@ class cmsJobController extends Controller
     function getCmsJobEdit($id){
         $data['category']=category::all();
         $data['jobs']=jobs::find($id);
+        
         return view("cms.jobs.editjob",$data);
     }
     function postCmsJobEdit(editJobsRequest $r, $id){
@@ -87,7 +97,7 @@ class cmsJobController extends Controller
         }
         $job->status=1;
         $job->category_id=$r->category;
-        $job->company_id=1;
+        $job->company_id=Auth::guard('customer_web')->user()->company_id;
 
         $job->save();
         return redirect()->back()->with('thongbao',"Đã sửa thành công");

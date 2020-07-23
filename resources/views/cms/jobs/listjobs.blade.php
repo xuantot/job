@@ -1,4 +1,9 @@
 @extends('cms.master.master')
+@section('title',"List jobs")
+    
+@section('list_jobs')
+    active
+@endsection
 @section('content')
     
 
@@ -38,23 +43,24 @@
                                             <th>Thông tin Job</th>
                                             <th>Tên công ty</th>
                                             <th>Mức lương</th>
-                                            <th>Danh mục</th>
+                                            
                                             <th>Tùy chọn</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                        
-                                        @foreach ($jobs as $row)
+                                        @foreach ($jobs as $key=> $row)
                                             
                                         
                                             <tr>
-                                                <td>{{ $row->id }}</td>
+                                                <td>{{ $key+1 }}</td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-3"><img src="../backend/img/{{ $row->logo }}"  width="100px" class="thumbnail"></div>
                                                         <div class="col-md-9" style="padding-left: 30px">
                                                             <p><strong>Mã Job : {{ $row->job_code }}</strong></p>
-                                                            <p>Tên sản phẩm : {{ $row->job_name }}</p>
+                                                            <p>Tên sản phẩm: {{ $row->job_name }}</p>
+                                                            <p>Danh mục: {{ $row->category->name }}</p>
                                                             <p>Kinh nghiệm làm việc: {{ $row->experience }}</p>
                                                             
                                                             <p>Thời gian: {{ $row->nature }}</p>
@@ -68,10 +74,10 @@
                                                 </td>
                                                 <td>{{ number_format($row->salary,0,'','.') }}VNĐ</td>
                                                 
-                                                <td>{{ $row->category->name }}</td>
+                                                
                                                 <td>
                                                     <a href="/company/cms/job/edit/{{ $row->id}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-                                                    <a onclick='return del_company("{{ $row->job_name }}")'  href="/company/cms/job/delete/{{ $row->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                                                    <a onclick='return del_job("{{ $row->job_name }}")'  href="/company/cms/job/delete/{{ $row->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                                 </td>
                                             </tr>
 
@@ -99,8 +105,8 @@
     </div>
 </div>
 <script>
-    function del_company(compa){
-        return confirm('Bạn có muốn xóa job: '+compa+' ?')
+    function del_job(job){
+        return confirm('Bạn có muốn xóa job: '+job+' ?')
     }
 </script>
 @endsection

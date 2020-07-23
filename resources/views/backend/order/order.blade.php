@@ -31,24 +31,28 @@ class="active";
 										<tr class="bg-primary">
 											<th>ID</th>
 											<th>Tên khách hàng</th>
+											<th>Công ty</th>
 											<th>Sđt</th>
 											<th>Địa chỉ</th>
-
 											<th>Xử lý</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Công ty TNHH HN</td>
-											<td>0147258369</td>
-											<td>Hà Nội</td>
-											<td>
-												<a href="/admin/order/detail" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
+										@foreach ($customer as $row)
+											
+										
+											<tr>
+												<td>1</td>
+												<td>Quang Thanh</td>
+												<td>Công ty TNHH HN</td>
+												<td>0147258369</td>
+												<td>Hà Nội</td>
+												<td>
+													<a href="/admin/order/detail" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
 
-											</td>
-										</tr>
-
+												</td>
+											</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>

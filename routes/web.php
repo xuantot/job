@@ -121,12 +121,14 @@ Route::group(['prefix' => 'company/cms'], function () {
         Route::get('/', 'cms\cmsController@getCms');
         Route::post('logout', 'cms\cmsLoginController@logout');
         Route::get('/company', 'cms\cmsCompanyController@getCompany');
+        
         Route::group(['prefix' => 'job'], function () {
             Route::get('/', 'cms\cmsJobController@getCmsJob');
+
             Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
             Route::post('/add', 'cms\cmsJobController@postCmsJobAdd');
-            Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
 
+            // Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
             Route::get('/edit/{id}', 'cms\cmsJobController@getCmsJobEdit');
             Route::post('/edit/{id}', 'cms\cmsJobController@postCmsJobEdit');
 
@@ -134,9 +136,27 @@ Route::group(['prefix' => 'company/cms'], function () {
 
             Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');   
         });
+
+        
+        Route::group(['prefix' => 'company'], function () {
+            Route::get('/', 'cms\cmsCompanyController@getCompany');
+            Route::post('/', 'cms\cmsCompanyController@updateCompany');
+            // Route::post('/search', 'cms\cmsCompanyController@searchsCompany');
+            Route::get('/add', 'cms\cmsCompanyController@addCompany');
+            Route::post('/add', 'cms\cmsCompanyController@postaddCompany');
+            
+            // Route::post('/company/{id}', 'cms\cmsCompanyController@postCompany');
+        });
     });
 
-});
+ });
+   
+   
+    
+
+
+
+
 
 
 

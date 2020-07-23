@@ -1,4 +1,10 @@
+
 @extends('cms.master.master')
+@section('title',"List jobs")
+    
+@section('list_jobs')
+    active
+@endsection
 @section('content')
 <div class="col col-md-10" style="background-color: #F5F7FA">
     <div style="border: 1px solid #ddd;border-radius: 5px;padding-top: 50px;padding-left: 20px;padding-right: 20px;padding-bottom: 50px;">
@@ -19,7 +25,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 
-                                                <p>Công ty: CT1</p>
+                                                <p>Công ty: {{ $company->name }}</p>
                                             </div>
                                             <div class="form-group">
                                                 <div class="single_input">
@@ -127,3 +133,4 @@
 
     </script>
 @endsection
+
