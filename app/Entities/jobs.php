@@ -19,6 +19,6 @@ class jobs extends Model
 
     public function customer()
     {
-        return $this->hasManyThrough('App\Entities\customer', 'customer', 'job_sid', 'customer_id');
+        return $this->hasManyThrough('App\Entities\customer', 'customer_jobs', 'jobs_id', 'customer_id');
     }
 }

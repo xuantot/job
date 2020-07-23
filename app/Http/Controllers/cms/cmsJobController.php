@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 use App\Entities\jobs;
 use App\Entities\Category;
 use App\Http\Requests\editJobsRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Entities\customer_jobs;
 
 class cmsJobController extends Controller
 {
     function getCmsJob(){
-        $data['jobs']=jobs::where('status', 0)->paginate(5);
+        $customer=Auth::guard('customer_web')->user();
+        $data['jobs']=$customer->jobs()->where('status',0)->paginate(5);
+        //dd($data)->all();
+        
         return view("cms.jobs.listjobs",$data);
     }
 
@@ -22,6 +27,8 @@ class cmsJobController extends Controller
         return view("cms.jobs.addjob",$data);
     }
     function postCmsJobAdd(addJobsRequest $r){
+        $customer=Auth::guard('customer_web')->user();
+        $cus_id=Auth::guard('customer_web')->user()->id;
         $job = new jobs;
         $job->job_code=$r->job_code;
         $job->job_name=$r->job_name;
@@ -41,8 +48,15 @@ class cmsJobController extends Controller
         $job->status=1;
         $job->category_id=$r->category;
         $job->company_id=1;
-    
         $job->save();
+
+        $customer_jobs=new customer_jobs;
+        $customer_jobs->jobs_id=$job->id;
+        $customer_jobs->customer_id=$cus_id;
+        $customer_jobs->save();
+
+
+        
 
         return redirect("/company/cms/job")->with('thongbao',"Đã thêm thành công");
        
@@ -81,7 +95,9 @@ class cmsJobController extends Controller
 
 
     function getCmsJobQueue(){
-        $data['jobs']=jobs::where('status', 1)->paginate(5);
+        $customer=Auth::guard('customer_web')->user();
+        $data['jobs']=$customer->jobs()->where('status',1)->paginate(5);
+        
         return view("cms.jobs.queuejob", $data);
     }
 

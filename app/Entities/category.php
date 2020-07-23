@@ -10,7 +10,7 @@ class Category extends Model
     // protected $guarded = ['id'];
     public function jobs()
     {
-        return $this->hasMany('App\Entities\jobs', 'company_id', 'id');
+        return $this->hasMany('App\Entities\jobs', 'category_id', 'id');
     }
 }
 

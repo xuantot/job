@@ -14,7 +14,7 @@
         @endif
         <hr>
 
-        <form action="" method="post">@csrf
+        <form enctype="multipart/form-data" method="post">@csrf
             <div class="row">
                 <div class="col-xs-6 col-md-12 col-lg-12">
                     <div class="panel panel-primary">
@@ -69,7 +69,7 @@
                                                 <div class="form-group">
                                                     <label>Ảnh sản phẩm</label>
                                                     <input id="img" type="file" name="logo" class="form-control hidden" style="display: none!important;" onchange="changeImg(this)">
-                                                        <img id="avatar" class="thumbnail" style="cursor: pointer;" width="100%" height="350px" src="img/{{ $jobs->logo }}">
+                                                        <img id="avatar" class="thumbnail" style="cursor: pointer;" width="100%" height="350px" src="../backend/img/{{ $jobs->logo }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">

@@ -28,6 +28,6 @@ class customer extends Authenticatable
 
     public function jobs()
     {
-        return $this->belongsToMany('App\Entities\jobs', 'customer','customer_id', 'jobs_id');
+        return $this->belongsToMany('App\Entities\jobs', "customer_jobs", "customer_id", "jobs_id");
     }
 }

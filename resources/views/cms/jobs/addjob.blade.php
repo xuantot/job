@@ -9,7 +9,7 @@
         </div>
         <hr>
 
-        <form action="" method="post">@csrf
+        <form enctype="multipart/form-data" method="post">@csrf
             <div class="row">
                 <div class="col-xs-6 col-md-12 col-lg-12">
                     <div class="panel panel-primary">
