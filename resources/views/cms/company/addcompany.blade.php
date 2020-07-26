@@ -38,6 +38,7 @@
                                 </div>
                                 @endif
                             </div>
+                            
                             <div class="form-group">
                                 <label>Địa chỉ</label>
                                 <input type="address" name="address" class="form-control">
@@ -46,7 +47,8 @@
                                     <strong>{{$errors->first('address')}}</strong>
                                     </div>
                                 @endif
-                            </div>
+                           
+                                </div>
                            
                             <div class="form-group">
                                 <label>Số điện thoại</label>

@@ -24,7 +24,7 @@ class cmsCompanyController extends Controller
        $data=customer::find($cus);
        $data->company_id=$r->id;
        $data->save();
-       return redirect()->back()->with('thongbao','Đã cập nhật thông tin công ty');
+       return redirect('company/cms/company/')->with('thongbao','Đã cập nhật thông tin công ty');
        
     }
     function addCompany(){

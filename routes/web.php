@@ -23,6 +23,7 @@ Route::group(['prefix' => ''], function () {
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'frontend\jobController@getJob');
         Route::get('/detail', 'frontend\jobController@getJobDetail');
+        Route::post('/detail/{id}', 'frontend\jobController@getJobDetail');
         Route::get('/candidate', 'frontend\jobController@getCandidate');
     });
 });
