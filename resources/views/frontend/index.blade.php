@@ -96,6 +96,7 @@
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a onchange="update_category('{{$category->id}}')"  href="/?category={{$category->id}}"><h4>{{ $category->name }}</h4></a>
+                    
                     <p> <span>{{ $category->jobs->count('company_id') }}</span> Available position</p>
                 </div>
             </div> 

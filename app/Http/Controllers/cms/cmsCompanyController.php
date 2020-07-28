@@ -53,7 +53,7 @@ class cmsCompanyController extends Controller
     // }
 
     function searchsCompany(request $r){
-        $data['company']=company::where('name','like',"%$r->company%")->orwhere('code','like',"%$r->company%")->paginate(20);
+        $data['company']=company::where('name','like',"%$r->company%")->where('code','like',"%$r->company%")->company::paginate(20);
         
         return view('cms.company.company',$data);
     }

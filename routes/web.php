@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => ''], function () {
 
     Route::get('/', 'frontend\IndexController@getIndex');
+    Route::post('/', 'frontend\IndexController@searchIndex');
     Route::get('/contact', 'frontend\IndexController@getContact');
 
     Route::group(['prefix' => 'job'], function () {

@@ -10,6 +10,7 @@ class IndexController extends Controller
 {
     function getIndex(request $request){
         
+        
         if($request->category)
         {
             
@@ -23,6 +24,10 @@ class IndexController extends Controller
         return view("frontend.index",$data);
     
 }
+// function searchIndex(){
+
+//     return view("frontend.index",$data);
+// }
     function getContact(){
         return view("frontend.contact");
     }
