@@ -15,7 +15,8 @@ class CreateCvTable extends Migration
     {
         Schema::create('cv', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('link_cv')->unique();
+            $table->string('name_file')->unique();
+            $table->string('note', 100);
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade');
         });

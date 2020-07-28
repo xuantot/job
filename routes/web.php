@@ -19,11 +19,15 @@ Route::group(['prefix' => ''], function () {
 
     Route::get('/', 'frontend\IndexController@getIndex');
     Route::get('/contact', 'frontend\IndexController@getContact');
+    Route::get('/logout', 'frontend\IndexController@logout');
 
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'frontend\jobController@getJob');
+        Route::post('/', 'frontend\jobController@postJob');
         Route::get('/detail', 'frontend\jobController@getJobDetail');
+        Route::post('/detail', 'frontend\jobController@upLoadCV');
         Route::get('/candidate', 'frontend\jobController@getCandidate');
+
     });
 });
 
@@ -119,10 +123,10 @@ Route::group(['prefix' => 'company/cms'], function () {
 
     Route::group(['middleware'=>'checkLevelCustomer'], function (){
         Route::get('/', 'cms\cmsController@getCms');
-        Route::post('logout', 'cms\cmsLoginController@logout');
+        Route::get('/logout', 'cms\cmsLoginController@logout');
         Route::get('/company', 'cms\cmsCompanyController@getCompany');
         Route::group(['prefix' => 'job'], function () {
-        Route::get('/', 'cms\cmsJobController@getCmsJob');
+        Route::get('/', 'cms\cmsJobController@getCms')->middleware();
         Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
         Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
         });

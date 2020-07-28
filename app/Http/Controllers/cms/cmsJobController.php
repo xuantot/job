@@ -3,17 +3,23 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class cmsJobController extends Controller
 {
-    function getCmsJob(){
+    public function getCms()
+    {
         return view("cms.jobs.listjobs");
     }
-    function getCmsJobAdd(){
+    public function getCmsJobAdd()
+    {
         return view("cms.jobs.addjob");
     }
-    function getCmsJobEdit(){
+    public function getCmsJobEdit()
+    {
         return view("cms.jobs.editjob");
     }
 }

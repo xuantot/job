@@ -16,13 +16,12 @@ class CheckLevelCustomer
      */
     public function handle($request, Closure $next,  $guard = null)
     {
-        if (Auth::guard('customer_web')->check() && Auth::guard('customer_web')->user()->type==1) {
-            return $next($request);
-        } else {
-            if(Auth::guard('customer_web')->user()->type!=1){
-                return redirect('company/cms/login')->with('success', 'User bạn vừa đăng nhập không có quyền vào đây!!!');
+            if(Auth::guard('customer_web')->check() && Auth::guard('customer_web')->user()->type==2){
+                return $next($request);
+            }elseif(Auth::guard('customer_web')->check() && Auth::guard('customer_web')->user()->type==1){
+                return redirect('/');
+            }else{
+                return redirect('company/cms/login');
             }
-            return redirect('company/cms/login');
-        }
     }
 }
