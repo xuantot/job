@@ -44,8 +44,9 @@ class="active";
 											<th>ID</th>
 											<th>Thông tin Job</th>
 											<th>Tên công ty</th>
-											<th>Mức lương</th>
 											<th>Danh mục</th>
+											<th>Mức lương</th>
+											
 											<th>Tùy chọn</th>
 										</tr>
 									</thead>
@@ -71,9 +72,10 @@ class="active";
 												<td>
 													{{ $row->company->name }}
 												</td>
+												<td>{{ $row->category->name }}</td>
 												<td>{{ number_format($row->salary,0,'','.') }}VNĐ</td>
 												
-												<td>{{ $row->category->name }}</td>
+												
 												<td>
 													<a href="/admin/job/edit/{{ $row->id }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
 													<a onclick='return del_company("{{ $row->job_name }}")' href="/admin/job/delete/{{ $row->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>

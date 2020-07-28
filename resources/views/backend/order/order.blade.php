@@ -25,7 +25,7 @@ class="active";
 						<div class="bootstrap-table">
 							<div class="table-responsive">
 
-								<a href="/admin/order/processed" class="btn btn-success">Bài đăng đã xử lý</a>
+								<a href="/admin/order/processed" class="btn btn-success">Bài đăng đã bỏ qua</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 									<thead>
 										<tr class="bg-primary">
@@ -38,17 +38,15 @@ class="active";
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($customer as $row)
-											
-										
+										@foreach ($customer as $key => $row)
 											<tr>
-												<td>1</td>
-												<td>Quang Thanh</td>
-												<td>Công ty TNHH HN</td>
-												<td>0147258369</td>
-												<td>Hà Nội</td>
+												<td>{{ $key+1 }}</td>
+												<td>{{ $row->name }}</td>
+												<td>{{ $row->company->name }}</td>
+												<td>{{ $row->phone }}</td>
+												<td>{{ $row->company->address }}</td>
 												<td>
-													<a href="/admin/order/detail" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
+													<a href="/admin/order/detail/{{ $row->id }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
 
 												</td>
 											</tr>

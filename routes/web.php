@@ -92,8 +92,16 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::group(['prefix' => 'order'], function () {
             Route::get('/', 'backend\OrderController@getOrder');
-            Route::get('/detail', 'backend\OrderController@getDetailOrder');
+
+            Route::get('/detail/{id}', 'backend\OrderController@getDetailOrder');
+            Route::get('/detail/update/{id}', 'backend\OrderController@getUpdate');
+            Route::get('/detail/delete/{id}', 'backend\OrderController@getDelete');
+            Route::post('/detail/{id}', 'backend\OrderController@postDetailOrder');
+
             Route::get('/processed', 'backend\OrderController@getProcessedOrder');
+            Route::get('/detail/removed/{id}', 'backend\OrderController@getDetailRemoved');
+            Route::post('/detail/removed/{id}', 'backend\OrderController@postDetailRemoved');
+            
         });
     });
 });
