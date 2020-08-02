@@ -1,3 +1,6 @@
+
+
+
 <header>
     <div class="header-area ">
         <div id="sticky-header" class="main-header-area">
@@ -21,7 +24,7 @@
                                             <ul class="submenu">
                                                 <li><a href="/job/candidate">Candidates </a></li>
                                                 <li><a href="/job/detail">job details </a></li>
-                                                
+
                                             </ul>
                                         </li>
                                         <li><a href="/contact">Contact</a></li>
@@ -31,15 +34,19 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
+                                @if (!Auth::guard('customer_web')->check())
                                 <div class="phone_num d-none d-xl-block">
-                                    <a href="/company/cms/login">Log in</a>
+                                    <a href="/company/cms/login">Login</a>
                                 </div>
+                                @endif
                                 <div class="d-none d-lg-block">
                                     <a class="boxed-btn3" href="/company/cms/job">Post a Job</a>
                                 </div>
-                                <div class="phone_num d-none d-xl-block" align="left">
-                                    <a href="#" style="padding-left: 15px;">Log out</a>
+                                @if (Auth::guard('customer_web')->check())
+                                <div class="phone_num d-none d-xl-block">
+                                    <a href="/logout" style="margin-left: 11px;">Log out</a>
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <div class="col-12">

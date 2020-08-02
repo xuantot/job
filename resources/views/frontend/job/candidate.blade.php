@@ -1,7 +1,7 @@
 @extends('frontend.master.master')
 @section('title',"Candidate")
 @section('content')
-    
+
 
     <!-- bradcam_area  -->
     <div class="bradcam_area bradcam_bg_1">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    
+
                     <div class="single_candidates text-center">
                         <div class="thumb">
                             <img src="img/candiateds/5.png" alt="">

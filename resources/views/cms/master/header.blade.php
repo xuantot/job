@@ -38,17 +38,21 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
+                                @if (Auth::guard('customer_web')->check())
+
+                                @else
                                 <div class="phone_num d-none d-xl-block">
-                                    <a href="/company/cms/login">Log in</a>
+                                    <a href="/company/cms/login">Login</a>
                                 </div>
+                                @endif
                                 <div class="d-none d-lg-block">
                                     <a class="boxed-btn3" href="/company/cms/job">Post a Job</a>
                                 </div>
+                                {{-- <div class="phone_num d-none d-xl-block">
+                                    <a href="" onclick="event.preventDefault();document.getElementById('logout-form-cms').submit()" style="margin-left: 11px;">Log out</a>
+                                </div> --}}
                                 <div class="phone_num d-none d-xl-block">
-                                    <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit()" style="margin-left: 11px;">Log out</a>
-                                    <form action="/company/cms/logout" method="POST" id="logout-form">
-                                        @csrf
-                                    </form>
+                                    <a href="/company/cms/logout" style="margin-left: 11px;">Log out</a>
                                 </div>
                             </div>
                         </div>
@@ -77,3 +81,6 @@
     </div>
 </div>
 </div>
+{{-- <form action="/company/cms/logout" method="POST" id="logout-form-cms">
+    @csrf
+</form> --}}
