@@ -52,6 +52,7 @@
                                         </div>
                                     @endif
                                 </div>
+<<<<<<< HEAD
                             
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
@@ -74,6 +75,35 @@
                                     <a href="/company/cms/company" class="btn btn-danger" type="reset">Huỷ bỏ</a>
                                 </div>
                             </form>
+=======
+                                @endif
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Địa chỉ</label>
+                                <input type="address" name="address" class="form-control">
+                                @if($errors->has('address'))
+                                    <div class="alert alert-danger" role="alert">
+                                    <strong>{{$errors->first('address')}}</strong>
+                                    </div>
+                                @endif
+                           
+                                </div>
+                           
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input type="phone" name="hotline" class="form-control">
+                                @if($errors->has('hotline'))
+                                    <div class="alert alert-danger" role="alert">
+                                    <strong>{{$errors->first('hotline')}}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Thông tin</label>
+                                <textarea style="width: 100%" name="info_company" id="" cols="30" rows="5"></textarea>
+                                {{--  <input type="address" name="info_company" class="form-control">  --}}
+>>>>>>> feature/cms/company
                             </div>
                         
                         

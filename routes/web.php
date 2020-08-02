@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => ''], function () {
 
     Route::get('/', 'frontend\IndexController@getIndex');
+    Route::post('/', 'frontend\IndexController@searchIndex');
     Route::get('/contact', 'frontend\IndexController@getContact');
     Route::get('/logout', 'frontend\IndexController@logout');
 
@@ -25,7 +26,7 @@ Route::group(['prefix' => ''], function () {
         Route::get('/', 'frontend\jobController@getJob');
         Route::post('/', 'frontend\jobController@postJob');
         Route::get('/detail', 'frontend\jobController@getJobDetail');
-        Route::post('/detail', 'frontend\jobController@upLoadCV');
+        Route::post('/detail/{id}', 'frontend\jobController@getJobDetail');
         Route::get('/candidate', 'frontend\jobController@getCandidate');
 
     });

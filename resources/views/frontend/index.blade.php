@@ -1,6 +1,5 @@
 @extends('frontend.master.master')
 @section('title', "Job Board")
-
 @section('content')
     
 <!-- slider_area_start -->
@@ -95,60 +94,25 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($categorys as $category)
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
-                    <a href="jobs.html"><h4>Design & Creative</h4></a>
-                    <p> <span>50</span> Available position</p>
+                    <a onchange="update_category('{{$category->id}}')"  href="/?category={{$category->id}}"><h4>{{ $category->name }}</h4></a>
+                    
+                    <p> <span>{{ $category->jobs->count('company_id') }}</span> Available position</p>
                 </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Marketing</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Telemarketing</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Software & Web</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Administration</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Teaching & Education</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Engineering</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-xl-3 col-md-6">
-                <div class="single_catagory">
-                    <a href="jobs.html"><h4>Garments / Textile</h4></a>
-                    <p> <span>50</span> Available position</p>
-                </div>
-            </div>
+            </div> 
+            @endforeach
+            
+           
         </div>
     </div>
-</div>
+                </div>
 <!-- popular_catagory_area_end  -->
 
 <!-- job_listing_area_start  -->
+
+
 <div class="job_listing_area">
     <div class="container">
         <div class="row align-items-center">
@@ -159,43 +123,50 @@
             </div>
             <div class="col-lg-6">
                 <div class="brouse_job text-right">
-                    <a href="jobs.html" class="boxed-btn4">Browse More Job</a>
+                    <a href="/job" class="boxed-btn4">Browse More Job</a>
                 </div>
             </div>
         </div>
         <div class="job_lists">
             <div class="row">
-                @foreach ($jobs as $item)
+                @foreach ($jobs as $job)             
                     <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="img/svg_icon/1.svg" alt="">
-                            </div>
-                            <div class="jobs_conetent">
-                                <a href="/job/detail"><h4>{{ $item->job_name }}</h4></a>
-                                <div class="links_locat d-flex align-items-center">
-                                    <div class="location">
-                                        <p> <i class="fa fa-map-marker"></i> California, USA</p>
-                                    </div>
-                                    <div class="location">
-                                        <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                <div class="thumb">
+                                    {{-- <a href="/job/detail"> <img  src="../backend/img/{{ $job->logo }}" alt=""></a> --}}
+                                    <a href="/job/detail"> <img src="../backend/img/{{ $job->logo }}" alt="" style="width: 48px;height: 48px;"></a>
+                                </div>
+                                <div class="jobs_conetent">
+                                    <a href="/job/detail"><h4>{{ $job->job_name }}</h4></a>
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="location">
+                                            <p> <i class="fa fa-map-marker"></i> {{ $job->company->address }}</p>
+                                        </div>
+                                        <div class="location">
+                                            <p> <i class="fa fa-clock-o"></i> {{ $job->nature}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="jobs_right">
-                            <div class="apply_now">
-                                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                <a href="/job/detail" class="boxed-btn3">Apply Now</a>
-                            </div>
-                            <div class="date">
-                                <p>Date line: 31 Jan 2020</p>
+                            <div class="jobs_right">
+                                <div class="apply_now">
+                                    <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                    <a href="/job/detail" class="boxed-btn3">Apply Now</a>
+                                </div>
+                                <div class="date">
+                                    <p>Date line: {{ Carbon\Carbon::parse($job->updated_at )->format("d-m-y")}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                   {{$jobs->links()}}
+                </div>
+                
                 
             </div>
             <div align='center'>
@@ -205,8 +176,11 @@
             </div>
         </div>
     </div>
+    
 </div>
 <!-- job_listing_area_end  -->
+
+
 
 <!-- featured_candidates_area_start  -->
 <div class="featured_candidates_area">
@@ -469,4 +443,14 @@
 </div>
 <!-- /testimonial_area  -->
 
+@endsection
+@section('script')
+    function update_category(){
+        $.get('',
+        funciton(){
+            window.location.reload();
+        }
+        );
+    }
+    </script>
 @endsection
