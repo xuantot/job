@@ -11,14 +11,13 @@ use Illuminate\Http\Request;
 class orderController extends Controller
 {
     function getOrder(){
-        $data['customer']= customer::where('type',1)->has('jobs')->get();
-        // $data['customer']=customer::where('type',1)->get();
-        // $data['job']=$data['customer']->jobs()->where('status',1);
-        
-        // // $job=$data['customer']->jobs();
-        // dd($data)->all();
+        $data['customer']= customer::where('type',1)->whereHas('jobs', function( $query ){
+            $query->where("status", 1);
+        })->get();
+        // dd($data);
         return view("backend.order.order",$data);
     }
+
     function getDetailOrder($id){
         $data['customer']= customer::find($id); 
         $data['jobs']=$data['customer']->jobs()->where('status',1)->get();
