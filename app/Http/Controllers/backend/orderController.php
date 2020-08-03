@@ -14,7 +14,7 @@ class orderController extends Controller
         $data['customer']= customer::where('type',1)->whereHas('jobs', function( $query ){
             $query->where("status", 1);
         })->get();
-        // dd($data);
+        
         return view("backend.order.order",$data);
     }
 
@@ -60,7 +60,9 @@ class orderController extends Controller
 
 
     function getProcessedOrder(){
-        $data['customer']= customer::where('type',1)->has('jobs')->get();     
+        $data['customer']= customer::where('type',1)->whereHas('jobs', function( $query ){
+            $query->where("status", 2);
+        })->get();
         return view("backend.order.orderprocessed",$data);
     }
 

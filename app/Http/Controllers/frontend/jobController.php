@@ -4,9 +4,12 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Entities\jobs;
-use App\Entities\Category;
-use App\Entities\company;
+use App\Entities\{jobs,category,company,cv};
+// use App\Entities\Category;
+// use App\Entities\company;
+use Illuminate\Support\Facades\Auth;
+use App\Mail\SendMail;
+Use Mail;
 
 class jobController extends Controller
 {
@@ -14,7 +17,6 @@ class jobController extends Controller
         $data['categories']=Category::get();
         $data['companies']=company::get();
 
-        
         // $name = $r->query("search");
         $jobs = jobs::query();
 
@@ -30,6 +32,9 @@ class jobController extends Controller
 
         if (!empty($r->category)){
             $jobs->where("category_id",$r->category);
+        }
+        if (!empty($r->nature)){
+            $jobs->where("nature",$r->nature);
         }
         
         // if ($name && $r->category=="Category"){
@@ -70,14 +75,20 @@ class jobController extends Controller
 
     // }
 
-
-    public function getJobDetail(Request $request){
-        $idCustomerCV = Auth::guard('customer_web')->id();
-        return view("frontend.job.job_details", compact('idCustomerCV'));
+    function getJobDetail($id){
+        $data['job']=jobs::find($id);
+        $data['idCustomerCV'] = Auth::guard('customer_web')->id();
+        return view("frontend.job.job_details",$data);
     }
 
-    public function upLoadCV(Request $request)
+    // public function postJobDetail(Request $request){
+    //     $idCustomerCV = Auth::guard('customer_web')->id();
+    //     return view("frontend.job.job_details", compact('idCustomerCV'));
+    // }
+
+    public function postJobDetail(Request $request,$id)
     {
+    
         if(Auth::guard('customer_web')->check()){
             $request->validate([
                 'note' => 'max:100',
@@ -94,9 +105,21 @@ class jobController extends Controller
                     $file->move(public_path('fileCV'), $fileName);
                     $input['name_file'] = asset("fileCV/{$fileName}");
                     $cv = cv::create($input);
-                    return redirect('/job/detail')->with('success', 'Nộp CV thành công');
+
+                    //send mail
+                    $job=jobs::find($id);
+                    $data['name']=Auth::guard('customer_web')->user()->name;
+                    $data['email']=Auth::guard('customer_web')->user()->email;
+                    $data['job']=$job->job_name;
+                    
+                    
+                    Mail::to($data['email'])->send(new SendMail($data));
+                   
+
+
+                    return redirect()->back()->with('success', 'Nộp CV thành công, Vui lòng check email để nhận phản hồi');
                 }else{
-                    return redirect('/job/detail')->with('success', 'Sai định dạng file vui lòng thử lại!!!');
+                    return redirect()->back()->with('success', 'Sai định dạng file vui lòng thử lại!!!');
                 }
             }
         }else{

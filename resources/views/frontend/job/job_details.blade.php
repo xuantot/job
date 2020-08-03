@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>Software Engineer</h3>
+                        <h3>{{ $job->job_name }}</h3>
                     </div>
                 </div>
             </div>
@@ -26,16 +26,16 @@
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb">
-                                    <img src="img/svg_icon/1.svg" alt="">
+                                    <img  style="width: 48px;height: 48px;" src="../backend/img/{{ $job->logo }}" alt="">
                                 </div>
                                 <div class="jobs_conetent">
-                                    <a href="#"><h4>Software Engineer</h4></a>
+                                    <a href="#"><h4>{{ $job->job_name }}</h4></a>
                                     <div class="links_locat d-flex align-items-center">
                                         <div class="location">
-                                            <p> <i class="fa fa-map-marker"></i> California, USA</p>
+                                            <p> <i class="fa fa-map-marker"></i> {{ $job->company->address }}</p>
                                         </div>
                                         <div class="location">
-                                            <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                            <p> <i class="fa fa-clock-o"></i> {{ $job->nature }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -81,6 +81,39 @@
                     <div class="apply_job_form white-bg">
                         <h4>Apply for the job</h4>
                         @include('frontend.job.cv')
+                        {{-- <form method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    <p>{{ session('success') }}</p>
+                                </div>
+                            @endif
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                          </button>
+                                        </div>
+                                        <div class="custom-file">
+                                          <input type="file" name="name_file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                                          <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
+                                        <input type="hidden" value="{{$idCustomerCV}}" name="customer_id">
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input_field">
+                                        <textarea name="note" id="" cols="300" rows="100" placeholder="Coverletter"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="submit_btn">
+                                        <button class="boxed-btn3 w-100" type="submit">Apply Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form> --}}
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -90,11 +123,11 @@
                         </div>
                         <div class="job_content">
                             <ul>
-                                <li>Published on: <span>12 Nov, 2019</span></li>
-                                <li>Vacancy: <span>2 Position</span></li>
-                                <li>Salary: <span>50k - 120k/y</span></li>
-                                <li>Location: <span>California, USA</span></li>
+                                <li>Name Company: <span>{{ $job->company->name }}</span></li>                                                                                                
+                                <li>Salary: <span>{{ number_format($job->salary,0,'','.') }}VNĐ</span></li>
                                 <li>Job Nature: <span> Full-time</span></li>
+                                <li>Location: <span>California, USA</span></li>
+                                <li>Published on: <span>{{ Carbon\Carbon::parse($job->updated_at )->format("d-m-y")}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -107,7 +140,7 @@
                             <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
                         </ul>
                     </div>
-                    <div class="job_location_wrap">
+                    {{-- <div class="job_location_wrap">
                         <div class="job_lok_inner">
                             <div id="map" style="height: 200px;"></div>
                             <script>
@@ -135,7 +168,7 @@
                             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
 
                           </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

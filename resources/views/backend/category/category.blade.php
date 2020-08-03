@@ -65,7 +65,7 @@ class="active";
                                     <div class="category-fix">
                                     <a class="btn-category btn-primary" href="/admin/category/edit/{{$item->id  }}"><i
                                                 class="fa fa-edit"></i></a>
-                                        <a class="btn-category btn-danger delete" data-category-id="{{$item->id}}" href="/a"><i class="fas fa-times"></i></i></a>
+                                        <a onclick='return del_company("{{ $item->name }}")' class="btn-category btn-danger delete" data-category-id="{{$item->id}}" href="/a"><i class="fas fa-times"></i></i></a>
 
                                     </div>
                                 </div>
@@ -87,6 +87,9 @@ class="active";
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
 <script>
+    function del_company(compa){
+			return confirm('Bạn có muốn xóa danh mục: '+compa+' ?')
+		}
     $(document).ready(function() {
     $(".delete").on("click", function(e) {
         e.preventDefault()

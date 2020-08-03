@@ -30,55 +30,19 @@
 <div class="catagory_area">
     <div class="container">
         <form action="/" method="get">
-            <div class="row cat_search">
-                <div class="col-lg-3 col-md-4">
+            <div class="row cat_search ">
+                <div class="col-lg-8 col-md-4">
                     <div class="single_input">
                         <input name="name" type="text" placeholder="Search keyword">
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <div class="single_input">
-                        <select class="wide" >
-                            <option data-display="Location">Location</option>
-                            <option value="1">Dhaka</option>
-                            <option value="2">Rangpur</option>
-                            <option value="4">Sylet</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <div class="single_input">
-                        <select class="wide">
-                            <option data-display="Category">Category</option>
-                            <option value="1">Category 1</option>
-                            <option value="2">Category 2</option>
-                            <option value="4">Category 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-12">
-                    <div class="job_btn">
+                <div class="col-lg-4 ">
+                    <div col-md-12 class="job_btn">
                         <button type="submit" class="boxed-btn3">Find Job</button>
                     </div>
                 </div>
             </div>
         </form>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="popular_search d-flex align-items-center">
-                    <span>Popular Search:</span>
-                    <ul>
-                        <li><a href="#">Design & Creative</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Administration</a></li>
-                        <li><a href="#">Teaching & Education</a></li>
-                        <li><a href="#">Engineering</a></li>
-                        <li><a href="#">Software & Web</a></li>
-                        <li><a href="#">Telemarketing</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!--/ catagory_area -->
@@ -134,11 +98,11 @@
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb">
-                                    {{-- <a href="/job/detail"> <img  src="../backend/img/{{ $job->logo }}" alt=""></a> --}}
-                                    <a href="/job/detail"> <img src="../backend/img/{{ $job->logo }}" alt="" style="width: 48px;height: 48px;"></a>
+                                    
+                                    <a href="/job/detail/{{ $job->id }}"> <img src="../backend/img/{{ $job->logo }}" alt="" style="width: 48px;height: 48px;"></a>
                                 </div>
                                 <div class="jobs_conetent">
-                                    <a href="/job/detail"><h4>{{ $job->job_name }}</h4></a>
+                                    <a href="/job/detail/{{ $job->id }}"><h4>{{ $job->job_name }}</h4></a>
                                     <div class="links_locat d-flex align-items-center">
                                         <div class="location">
                                             <p> <i class="fa fa-map-marker"></i> {{ $job->company->address }}</p>
@@ -152,7 +116,7 @@
                             <div class="jobs_right">
                                 <div class="apply_now">
                                     <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
-                                    <a href="/job/detail" class="boxed-btn3">Apply Now</a>
+                                    <a href="/job/detail/{{ $job->id }}" class="boxed-btn3">Apply Now</a>
                                 </div>
                                 <div class="date">
                                     <p>Date line: {{ Carbon\Carbon::parse($job->updated_at )->format("d-m-y")}}</p>
@@ -182,7 +146,7 @@
 
 
 
-<!-- featured_candidates_area_start  -->
+{{-- <!-- featured_candidates_area_start  -->
 <div class="featured_candidates_area">
     <div class="container">
         <div class="row">
@@ -291,7 +255,7 @@
         </div>
     </div>
 </div>
-<!-- featured_candidates_area_end  -->
+<!-- featured_candidates_area_end  --> --}}
 
 <div class="top_companies_area">
     <div class="container">
@@ -348,7 +312,7 @@
     </div>
 </div>
 
-<!-- job_searcing_wrap  -->
+{{-- <!-- job_searcing_wrap  -->
 <div class="job_searcing_wrap overlay">
     <div class="container">
         <div class="row">
@@ -369,7 +333,7 @@
         </div>
     </div>
 </div>
-<!-- job_searcing_wrap end  -->
+<!-- job_searcing_wrap end  --> --}}
 
 <!-- testimonial_area  -->
 <div class="testimonial_area  ">

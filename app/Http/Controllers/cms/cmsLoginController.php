@@ -21,7 +21,7 @@ class cmsLoginController extends Controller
         ]);
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('customer_web')->attempt($credentials)) {
-            return redirect('/company/cms');
+            return redirect('/company/cms/job');
         }else{
         return back()->withInput(['email'])
             ->withErrors(['email' => 'Tài khoản hoặc mật khẩu nhập không đúng']);

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class IndexController extends Controller
 {
     function getIndex(request $r){
+        
         $jobs = jobs::query();
 
         if (!empty($r->name) ) {
@@ -33,7 +34,7 @@ class IndexController extends Controller
         }
         else
         {
-         $data['jobs']=jobs::paginate(15);
+         $data['jobs']=jobs::paginate(10);
         }
         $data['categorys']=category::all();
         

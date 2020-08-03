@@ -25,8 +25,9 @@ Route::group(['prefix' => ''], function () {
     Route::group(['prefix' => 'job'], function () {
         Route::get('/', 'frontend\jobController@getJob');
         Route::post('/', 'frontend\jobController@postJob');
-        Route::get('/detail', 'frontend\jobController@getJobDetail');
-        Route::post('/detail/{id}', 'frontend\jobController@getJobDetail');
+        Route::get('/detail/{id}', 'frontend\jobController@getJobDetail');
+        Route::post('/detail/{id}', 'frontend\jobController@postJobDetail');
+        
         Route::get('/candidate', 'frontend\jobController@getCandidate');
 
     });
@@ -136,7 +137,7 @@ Route::group(['prefix' => 'company/cms'], function () {
         Route::get('/company', 'cms\cmsCompanyController@getCompany');
         
         Route::group(['prefix' => 'job'], function () {
-            Route::get('/', 'cms\cmsJobController@getCms')->middleware();
+            Route::get('/', 'cms\cmsJobController@getCmsJob')->middleware();
             Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
             Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
         

@@ -1,4 +1,4 @@
-<form action="/job/detail" method="POST" enctype="multipart/form-data">
+<form  method="POST" enctype="multipart/form-data">
     @csrf
     @if (session('success'))
         <div class="alert alert-success">

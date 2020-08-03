@@ -17,6 +17,7 @@ class customer_jobs extends Seeder
             ['jobs_id'=>2, 'customer_id'=>1],
             ['jobs_id'=>3, 'customer_id'=>1],
             ['jobs_id'=>4, 'customer_id'=>1],
+            ['jobs_id'=>5, 'customer_id'=>1],
         ]);
     }
 }

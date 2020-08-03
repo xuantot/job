@@ -100,6 +100,7 @@ class="active";
 									</table>
 									<div class="alert alert-primary" role="alert" align='right'>
 										<button onclick='return update_all()' type="submit" class="btn btn-success">Duyệt tất cả</button>
+										<a href="/admin/order/processed" class="btn btn-danger">Quay lại</a>
 									</div>
 								</div>
 							</div>
