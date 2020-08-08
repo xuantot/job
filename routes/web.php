@@ -27,7 +27,7 @@ Route::group(['prefix' => ''], function () {
         Route::post('/', 'frontend\jobController@postJob');
         Route::get('/detail/{id}', 'frontend\jobController@getJobDetail');
         Route::post('/detail/{id}', 'frontend\jobController@postJobDetail');
-        
+
         Route::get('/candidate', 'frontend\jobController@getCandidate');
 
     });
@@ -107,7 +107,25 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/processed', 'backend\OrderController@getProcessedOrder');
             Route::get('/detail/removed/{id}', 'backend\OrderController@getDetailRemoved');
             Route::post('/detail/removed/{id}', 'backend\OrderController@postDetailRemoved');
-            
+
+        });
+        Route::group(['prefix' => 'setting'], function () {
+            Route::group(['prefix' => 'menu'], function () {
+                Route::get('/', 'backend\SettingMenuController@getMenu');
+                Route::get('/create', 'backend\SettingMenuController@formCreate');
+                Route::post('/create', 'backend\SettingMenuController@CreateMenu');
+                Route::get('/edit/{id}', 'backend\SettingMenuController@formEdit');
+                Route::post('/edit/{id}', 'backend\SettingMenuController@EditMenu');
+                Route::post('/del', 'backend\SettingMenuController@deleteMenu');
+            });
+            Route::group(['prefix' => 'testimonial'], function () {
+                Route::get('/', 'backend\SettingTestimonialController@getTestimonial');
+                Route::get('/create', 'backend\SettingTestimonialController@formCreate');
+                Route::post('/create', 'backend\SettingTestimonialController@CreateTestimonial');
+                Route::get('/edit/{id}', 'backend\SettingTestimonialController@formEdit');
+                Route::post('/edit/{id}', 'backend\SettingTestimonialController@EditTestimonial');
+                Route::post('/del', 'backend\SettingTestimonialController@deleteTestimonial');
+            });
         });
     });
 });
@@ -135,12 +153,12 @@ Route::group(['prefix' => 'company/cms'], function () {
         Route::get('/', 'cms\cmsController@getCms');
         Route::get('/logout', 'cms\cmsLoginController@logout');
         Route::get('/company', 'cms\cmsCompanyController@getCompany');
-        
+
         Route::group(['prefix' => 'job'], function () {
             Route::get('/', 'cms\cmsJobController@getCmsJob')->middleware();
             Route::get('/add', 'cms\cmsJobController@getCmsJobAdd');
             Route::get('/edit', 'cms\cmsJobController@getCmsJobEdit');
-        
+
 
 
 
@@ -153,25 +171,25 @@ Route::group(['prefix' => 'company/cms'], function () {
 
             Route::get('/queue', 'cms\cmsJobController@getCmsJobQueue');
 
-            Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');   
+            Route::get('/delete/{id}', 'backend\jobController@getDeleteJob');
         });
 
-        
+
         Route::group(['prefix' => 'company'], function () {
             Route::get('/', 'cms\cmsCompanyController@getCompany');
             Route::post('/', 'cms\cmsCompanyController@updateCompany');
             // Route::post('/search', 'cms\cmsCompanyController@searchsCompany');
             Route::get('/add', 'cms\cmsCompanyController@addCompany');
             Route::post('/add', 'cms\cmsCompanyController@postaddCompany');
-            
+
             // Route::post('/company/{id}', 'cms\cmsCompanyController@postCompany');
         });
     });
 
 });
-   
-   
-    
+
+
+
 
 
 

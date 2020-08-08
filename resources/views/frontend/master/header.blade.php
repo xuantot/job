@@ -1,6 +1,3 @@
-
-
-
 <header>
     <div class="header-area ">
         <div id="sticky-header" class="main-header-area">
@@ -15,22 +12,13 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-7">
-                            <div class="main-menu  d-none d-lg-block">
+                            <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="/">home</a></li>
-                                        <li><a href="/job">Browse Job</a></li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="/job/candidate">Candidates </a></li>
-                                                <li><a href="/job/detail">job details </a></li>
-
-                                            </ul>
-                                        </li>
-                                        <li><a href="/contact">Contact</a></li>
+                                        @include('frontend.master.menu')
                                     </ul>
-                                </nav>
-                            </div>
+                            </nav>
+                        </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">

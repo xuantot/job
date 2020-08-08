@@ -4,9 +4,9 @@
 @section('user_candidate')
 class="active";
 @endsection
-	
+
 @section('content')
-	
+
 
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -25,22 +25,22 @@ class="active";
 			</div>
 		</div>
 		@if(session('thongbao'))
-								<div class="alert bg-success" role="alert">
-									<svg class="glyph stroked checkmark">
-										<use xlink:href="#stroked-checkmark"></use>
-									</svg>{{ session('thongbao') }}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-								</div>
-								@endif
+        <div class="alert bg-success" role="alert">
+            <svg class="glyph stroked checkmark">
+                <use xlink:href="#stroked-checkmark"></use>
+            </svg>{{ session('thongbao') }}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        @endif
 		<!--/.row-->
 
-	
+
 
 		<div class="row">
 
 			<div class="col-xs-12 col-md-12 col-lg-12">
 
 				<div class="panel panel-primary">
-					
+
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
@@ -53,28 +53,28 @@ class="active";
 											<th>Name</th>
 											<th>Address</th>
                                             <th>Phone</th>
-                                        
+
 											<th width='18%'>Tùy chọn</th>
 										</tr>
 									</thead>
 									<tbody>
 										@foreach ($customer as $cus)
 										<tr>
-										
+
 										 <td>{{ $cus->id }}</td>
 											<td>{{ $cus->email }}</td>
 											<td>{{ $cus->name}}</td>
 											<td>{{ $cus->address }}</td>
                                             <td>{{ $cus->phone }}</td>
 											<td>
-												
+
 												<a  onclick="return delete_userCandidate('{{ $cus->id }}')" href="/admin/user/candidate/delete/{{$cus->id}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
-											</td>	
-										
-											
+											</td>
+
+
                                         </tr>
 									@endforeach
-								
+
 									</tbody>
 								</table>
 								<div align='right'>
@@ -87,7 +87,7 @@ class="active";
 						</div>
 
 					</div>
-				
+
 			</div>
 				<!--/.row-->
 
@@ -103,5 +103,5 @@ class="active";
 		return confirm("Bạn muốn xóa ứng viên:"+name+"?");
 	}
 </script>
-	
+
 @endsection

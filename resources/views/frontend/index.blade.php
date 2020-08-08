@@ -1,7 +1,7 @@
 @extends('frontend.master.master')
 @section('title', "Job Board")
 @section('content')
-    
+
 <!-- slider_area_start -->
 <div class="slider_area">
     <div class="single_slider  d-flex align-items-center slider_bg_1">
@@ -62,13 +62,13 @@
             <div class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_catagory">
                     <a onchange="update_category('{{$category->id}}')"  href="/?category={{$category->id}}"><h4>{{ $category->name }}</h4></a>
-                    
+
                     <p> <span>{{ $category->jobs->count('company_id') }}</span> Available position</p>
                 </div>
-            </div> 
+            </div>
             @endforeach
-            
-           
+
+
         </div>
     </div>
                 </div>
@@ -93,12 +93,12 @@
         </div>
         <div class="job_lists">
             <div class="row">
-                @foreach ($jobs as $job)             
+                @foreach ($jobs as $job)
                     <div class="col-lg-12 col-md-12">
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb">
-                                    
+
                                     <a href="/job/detail/{{ $job->id }}"> <img src="../backend/img/{{ $job->logo }}" alt="" style="width: 48px;height: 48px;"></a>
                                 </div>
                                 <div class="jobs_conetent">
@@ -130,8 +130,8 @@
                 <div class="col-md-12">
                    {{$jobs->links()}}
                 </div>
-                
-                
+
+
             </div>
             <div align='center'>
                 <ul class="pagination">
@@ -140,7 +140,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 <!-- job_listing_area_end  -->
 
@@ -346,60 +346,26 @@
             </div>
             <div class="col-xl-12">
                 <div class="testmonial_active owl-carousel">
+                    @foreach ($testimonial as $item)
                     <div class="single_carousel">
                         <div class="row">
                             <div class="col-lg-11">
                                 <div class="single_testmonial d-flex align-items-center">
                                     <div class="thumb">
-                                        <img src="img/testmonial/author.png" alt="">
+                                        <img width="100" height="100" src="http://127.0.0.1:8000/dataCustomer/avatarTestimonial/{{$item->avatar}}" alt="">
                                         <div class="quote_icon">
                                             <i class="Flaticon flaticon-quote"></i>
                                         </div>
                                     </div>
                                     <div class="info">
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
-                                        <span>- Micky Mouse</span>
+                                        <p>"{{$item->content}}"</p>
+                                        <span>- {{$item->name}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="single_carousel">
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="single_testmonial d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="img/testmonial/author.png" alt="">
-                                        <div class="quote_icon">
-                                            <i class=" Flaticon flaticon-quote"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
-                                        <span>- Micky Mouse</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_carousel">
-                        <div class="row">
-                            <div class="col-lg-11">
-                                <div class="single_testmonial d-flex align-items-center">
-                                    <div class="thumb">
-                                        <img src="img/testmonial/author.png" alt="">
-                                        <div class="quote_icon">
-                                            <i class="Flaticon flaticon-quote"></i>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
-                                        <span>- Micky Mouse</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -407,14 +373,4 @@
 </div>
 <!-- /testimonial_area  -->
 
-@endsection
-@section('script')
-    function update_category(){
-        $.get('',
-        funciton(){
-            window.location.reload();
-        }
-        );
-    }
-    </script>
 @endsection

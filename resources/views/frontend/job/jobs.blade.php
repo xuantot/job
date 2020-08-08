@@ -21,13 +21,13 @@
     <div class="job_listing_area plus_padding">
         <div class="container">
             <div class="row">
-                
+
                     <div class="col-lg-3">
                         <form action="/job" method="get">
                             <div class="job_filter white-bg">
                                 <div class="form_inner white-bg">
                                     <h3>Filter</h3>
-                                    
+
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="single_field">
@@ -51,8 +51,8 @@
                                                         @foreach ($categories as $item)
                                                             <option  value="{{ $item->id }}">{{ $item->name }}</option>
                                                         @endforeach
-                                                        {{-- 
-                                                        
+                                                        {{--
+
                                                         <option value="2">Category 2 </option> --}}
                                                     </select>
                                                 </div>
@@ -66,23 +66,23 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            
-                                            
+
+
                                         </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="reset_btn">
                                     <button  class="boxed-btn3 w-100" type="submit">Search</button>
                                 </div>
                             </div>
                          </form>
                     </div>
-               
-                
-            
 
-            
+
+
+
+
             <div class="col-lg-9">
                 <div class="recent_joblist_wrap">
                     <div class="recent_joblist white-bg ">

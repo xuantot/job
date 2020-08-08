@@ -4,7 +4,7 @@
 @section('user')
 class="active";
 @endsection
-	
+
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
@@ -23,7 +23,7 @@ class="active";
                         <div class="row justify-content-center" style="margin-bottom:40px">
 
                             <div class="col-md-8 col-lg-8 col-lg-offset-2">
-                             
+
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="email" type="email" value="{{ old('email') }}" class="form-control">
@@ -49,7 +49,7 @@ class="active";
                                     <input type="phone" name="phone" class="form-control" value="{{ old('phone') }}">
                                     {!! ShowErrors($errors,'phone')  !!}
                                 </div>
-                              
+
                                 <div class="form-group">
                                     <label>Level</label>
                                     <select name="level" class="form-control">
@@ -60,22 +60,22 @@ class="active";
                             </div>
                             <div class="row">
                                 <div class="col-md-8 col-lg-8 col-lg-offset-2 text-right">
-                                  
+
                                     <button class="btn btn-success"  type="submit">Thêm quản trị viên</button>
                                     <button class="btn btn-danger" type="reset">Huỷ bỏ</button>
                                 </div>
                             </div>
-                           
+
 
                         </div>
-                    
+
                         <div class="clearfix"></div>
                     </div>
                 </div>
 
         </div>
-    
-    
+
+
     </form>
     </div>
 
@@ -84,4 +84,3 @@ class="active";
 
     @endsection
 
-    

@@ -65,6 +65,7 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/gijgo.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
 
 
@@ -74,8 +75,6 @@
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
-
-
     <script src="js/main.js"></script>
     @yield('scrip')
 </body>

@@ -9,7 +9,8 @@
     <base href="{{ asset('backend') }}/">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/setting_style.css" rel="stylesheet">
 
 
 

@@ -4,9 +4,5 @@
         <li ><a  href="/company/cms/company" class="list-group-item list-group-item-action @yield('company')" >Company</a></li>
         <li><a href="/company/cms/job" class="list-group-item list-group-item-action @yield('list_jobs') ">List Jobs</a></li>
       </ul>
-      
-      
-      
-      
   </div>
 </div>

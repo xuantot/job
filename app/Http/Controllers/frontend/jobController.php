@@ -4,7 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Entities\{jobs,category,company,cv};
+use App\Entities\{jobs,category,company,cv, Menu};
 // use App\Entities\Category;
 // use App\Entities\company;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +16,6 @@ class jobController extends Controller
     function getJob(request $r){
         $data['categories']=Category::get();
         $data['companies']=company::get();
-
-        // $name = $r->query("search");
         $jobs = jobs::query();
 
         if (!empty($r->search) ) {
@@ -25,7 +23,7 @@ class jobController extends Controller
         }
 
         if (!empty($r->location)) {
-            $jobs->whereHas("company", function( $query ) use (&$r){ 
+            $jobs->whereHas("company", function( $query ) use (&$r){
                 $query->where("address", "like", "%{$r->location}%");
             });
         }
@@ -36,44 +34,30 @@ class jobController extends Controller
         if (!empty($r->nature)){
             $jobs->where("nature",$r->nature);
         }
-        
-        // if ($name && $r->category=="Category"){
-        //     $jobs->where("job_name", "like", "%{$name}%");
-        // }
-        // elseif ($name && $r->category) {
-        //     $jobs->where("job_name", "like", "%{$name}%")->where("category_id", $r->category);
-        // }
-        // elseif($r->category){
-        //     $jobs->where("company_id", $r->category);
-        // }
-        // elseif($r->location){
-        //     $jobs->company()->where("address", "like", "%{$r->location}%");
-        // }
-        // elseif($r->nature && $r->category=="Category"){
-        //     $jobs->where("nature", "like", "%{$r->nature}%");
-        // }
-    
+
 
 
         $data['jobs']= $jobs->where('status', 0)->paginate(5);
-        // dd($data['jobs']->company())->all();
-
+        $data['menu'] = $this->getSubMenu(0);
         return view("frontend.job.jobs",$data);
+    }
+
+    private function getSubMenu($parentId, $ignoreId = null)
+    {
+        $menu = Menu::whereParentId($parentId)
+            ->where('id', '<>', $ignoreId)
+            ->get();
+        $menu->map(function ($menuCount) use($ignoreId) {
+            $menuCount->sub = $this->getSubMenu($menuCount->id, $ignoreId);
+            return $menuCount;
+        });
+        return $menu;
     }
 
     public function postJob(Request $request)
     {
         dd($request->location);
-        // return redirect(route('search', ['key-word' =>$request->search]));
     }
-
-
-
-    // public function search(Request $request)
-    // {
-    //     return view('frontend.job.search');
-
-    // }
 
     function getJobDetail($id){
         $data['job']=jobs::find($id);
@@ -81,14 +65,9 @@ class jobController extends Controller
         return view("frontend.job.job_details",$data);
     }
 
-    // public function postJobDetail(Request $request){
-    //     $idCustomerCV = Auth::guard('customer_web')->id();
-    //     return view("frontend.job.job_details", compact('idCustomerCV'));
-    // }
-
     public function postJobDetail(Request $request,$id)
     {
-    
+
         if(Auth::guard('customer_web')->check()){
             $request->validate([
                 'note' => 'max:100',
@@ -99,7 +78,9 @@ class jobController extends Controller
                 'note',
             ]);
             if($request->hasFile('name_file')){
-                if($request->name_file->getClientOriginalExtension()==="rar" || $request->name_file->getClientOriginalExtension()==="zip" || $request->name_file->getClientOriginalExtension()==="pdf"){
+                if($request->name_file->getClientOriginalExtension()==="rar"
+                || $request->name_file->getClientOriginalExtension()==="zip"
+                || $request->name_file->getClientOriginalExtension()==="pdf"){
                     $file = $request->file('name_file');
                     $fileName = $file->getClientOriginalName('name_file');
                     $file->move(public_path('fileCV'), $fileName);
@@ -111,10 +92,10 @@ class jobController extends Controller
                     $data['name']=Auth::guard('customer_web')->user()->name;
                     $data['email']=Auth::guard('customer_web')->user()->email;
                     $data['job']=$job->job_name;
-                    
-                    
+
+
                     Mail::to($data['email'])->send(new SendMail($data));
-                   
+
 
 
                     return redirect()->back()->with('success', 'Nộp CV thành công, Vui lòng check email để nhận phản hồi');
@@ -129,7 +110,8 @@ class jobController extends Controller
     }
 
     public function getCandidate(){
-        return view("frontend.job.candidate");
+        $data['menu'] = $this->getSubMenu(0);
+        return view("frontend.job.candidate", $data);
     }
 
     public function getElement(){
