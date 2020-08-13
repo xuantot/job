@@ -16,13 +16,14 @@ class cmsLoginController extends Controller
 
     public function login(Request $request){
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required|min:6'
         ]);
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('customer_web')->attempt($credentials)) {
             return redirect('/company/cms/job');
-        }else{
+        }
+        else{
         return back()->withInput(['email'])
             ->withErrors(['email' => 'Tài khoản hoặc mật khẩu nhập không đúng']);
         }
@@ -70,28 +71,30 @@ class cmsLoginController extends Controller
         $request ->validate([
             'email' => 'required|email|unique:App\Entities\User,email',
         ]);
-        $email = customer::where('email',$request->email)->get();
-
+        $email = customer::where('email', $request->email)->get();
         foreach($email as $item){
             $url= route('link.reset.password', ['email' =>$request->email]);
         }
-        $data = [
-            'email' => $email,
-            'route' => $url
-        ];
-
-        if($email){
-            Mail::send('cms.auth.email.send_forget_password', $data,
-            function($message) use($request, $email )
-            {
-                foreach($email as $item){
-                    $message->to($request->email, $item->name);
-                    $message->subject('Forget password');
-                }
-            });
-            return redirect($url)->withInput()->with('success', 'Mã code đã được gửi về email, vui lòng kiểm tra hộp thư!');
+        if(isset($url)){
+            $data = [
+                'email' => $email,
+                'route' => $url
+            ];
+            if($email){
+                Mail::send('cms.auth.email.send_forget_password', $data,
+                function($message) use($request, $email )
+                {
+                    foreach($email as $item){
+                        $message->to($request->email, $item->name);
+                        $message->subject('Forget password');
+                    }
+                });
+                return redirect($url)->withInput()->with('success', 'Mã code đã được gửi về email, vui lòng kiểm tra hộp thư!');
+            }else{
+                return redirect()->back()->with('success', 'Email bạn điền không đúng vui lòng điền lại!!!');
+            }
         }else{
-            return redirect()->back()->with('success', 'Email bạn điền không đúng vui lòng điền lại!!!');
+            return redirect('/company/cms/login/forget_password')->with('success', 'Email không tồn tại.');
         }
     }
 

@@ -43,12 +43,12 @@ class="active";
                                 @csrf
                                 <div class="form-group">
                                     @if (count($errors) > 0)
-                                    @component('backend.components.alret')
-                                    @slot('type', 'danger')
-                                    @slot('stroke', 'cancel')
-                                    {{ $errors->first() }}
-                                    @endcomponent
-                                @endif
+                                        @component('backend.components.alret')
+                                        @slot('type', 'danger')
+                                        @slot('stroke', 'cancel')
+                                        {{ $errors->first() }}
+                                        @endcomponent
+                                    @endif
                                     <label for="">Tên Danh mục</label>
                                     <input type="text" class="form-control" name="name" id=""
                                         placeholder="Tên danh mục mới">

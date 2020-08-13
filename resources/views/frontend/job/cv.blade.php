@@ -5,6 +5,11 @@
             <p>{{ session('success') }}</p>
         </div>
     @endif
+    @if (count($errors) > 0)
+    <div class="alert alert-success">
+        {{ $errors->first() }}
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="input-group">
@@ -13,7 +18,7 @@
                   </button>
                 </div>
                 <div class="custom-file">
-                  <input type="file" name="name_file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                  <input multiple="multiple" type="file" name="name_file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
                   <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
                 <input type="hidden" value="{{$idCustomerCV}}" name="customer_id">
                 </div>

@@ -15,9 +15,6 @@ class categoryController extends Controller
         return view("backend.category.category", compact('category'));
     }
     function postCategory(CreateCategoryRequest $request){
-        $request->validate([
-            'name' => 'required',
-        ]);
         $createCategory = new Category();
         $createCategory->name = $request->name;
         $createCategory->save();

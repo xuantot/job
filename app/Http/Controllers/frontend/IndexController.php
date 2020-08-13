@@ -5,7 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Entities\jobs;
-use App\Entities\{category, Testimonial};
+use App\Entities\{category, Testimonial, Contact};
 use Illuminate\Support\Facades\Auth;
 use App\Entities\Menu;
 
@@ -36,10 +36,14 @@ class IndexController extends Controller
         {
          $data['jobs']=jobs::paginate(10);
         }
+
+
         $data['categorys']=category::all();
         $data['testimonial']=Testimonial::get();
-
         $data['menu'] = $this->getSubMenu(0);
+        $data['contact'] = Contact::get();
+
+
         return view("frontend.index",$data);
     }
 
@@ -59,6 +63,7 @@ class IndexController extends Controller
 // }
     function getContact(){
         $data['menu'] = $this->getSubMenu(0);
+        $data['contact'] = Contact::get();
         return view("frontend.contact", $data);
     }
 

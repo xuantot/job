@@ -28,13 +28,13 @@
                         <p>{{ session('success') }}</p>
                     </div>
                     @endif
-                    
+
 
 					<form role="form" action="/company/cms/login" method="POST">
                         @csrf
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+								<input class="form-control" placeholder="E-mail" name="email" type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">

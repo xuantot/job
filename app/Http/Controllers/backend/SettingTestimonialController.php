@@ -54,8 +54,6 @@ class SettingTestimonialController extends Controller
 
     public function EditTestimonial(Request $request, $editTestimonial)
     {
-        File::delete('dataCustomer/avatarTestimonial/'.Testimonial::findOrFail($editTestimonial)->avatar);
-        // File::delete(public_path('dataCustomer/avatarTestimonial/'));
         $request->validate([
             'name' => 'required',
             'content' => 'required',

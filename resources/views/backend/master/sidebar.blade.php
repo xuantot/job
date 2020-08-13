@@ -8,18 +8,19 @@
         <li @yield('company')><a href="/admin/company"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper" /></svg>Company</a></li>
         <li @yield('job')><a href="/admin/job"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad" /></svg> Jobs</a></li>
         <li @yield('order')><a href="/admin/order"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad" /></svg> Order Job</a></li>
-        <div  id="menu">
-            <li @yield('setting') class="setting">
-            <a href="javascript:void(0)">
-               <svg class="glyph stroked notepad">
-                  <use xlink:href="#stroked-notepad"></use>
-               </svg>
-               Setting
-            </a>
-            <ul class="dropdown_menu">
-               <li><a href="/admin/setting/menu">Setting Menu</a></li>
-               <li><a href="/admin/setting/testimonial">Setting Comment</a></li>
-            </ul>
+        <div  id="menu" @yield('setting') >
+            <li class="setting">
+              <a href="javascript:void(0)">
+                <svg class="glyph stroked notepad">
+                    <use xlink:href="#stroked-notepad"></use>
+                </svg>
+                <span {{isset($item) ? 'style=color:#fff' : ''}}>Setting</span>
+              </a>
+              <ul class="dropdown_menu">
+                <li @yield('setting_menu')><a href="/admin/setting/menu">Setting Menu</a></li>
+                <li @yield('setting_testimonial')><a href="/admin/setting/testimonial">Setting Testimonialt</a></li>
+                <li @yield('setting_contact')><a href="/admin/setting/contact">Setting Contact</a></li>
+              </ul>
             </li>
          </div>
         <li role="presentation" class="divider"></li>

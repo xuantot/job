@@ -9,11 +9,13 @@
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>
+                        @foreach ($contact as $item)
                         <p>
-                            finloan@support.com <br>
-                            +10 873 672 6782 <br>
-                            600/D, Green road, NewYork
+                            {{$item->email}}<br>
+                            {{$item->hotline}} <br>
+                            {{$item->address}}
                         </p>
+                        @endforeach
                         <div class="socail_links">
                             <ul>
                                 <li>

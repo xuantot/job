@@ -81,39 +81,6 @@
                     <div class="apply_job_form white-bg">
                         <h4>Apply for the job</h4>
                         @include('frontend.job.cv')
-                        {{-- <form method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @if (session('success'))
-                                <div class="alert alert-success">
-                                    <p>{{ session('success') }}</p>
-                                </div>
-                            @endif
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                                          </button>
-                                        </div>
-                                        <div class="custom-file">
-                                          <input type="file" name="name_file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-                                          <label class="custom-file-label" for="inputGroupFile03">Upload CV</label>
-                                        <input type="hidden" value="{{$idCustomerCV}}" name="customer_id">
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="input_field">
-                                        <textarea name="note" id="" cols="300" rows="100" placeholder="Coverletter"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="submit_btn">
-                                        <button class="boxed-btn3 w-100" type="submit">Apply Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form> --}}
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -123,7 +90,7 @@
                         </div>
                         <div class="job_content">
                             <ul>
-                                <li>Name Company: <span>{{ $job->company->name }}</span></li>                                                                                                
+                                <li>Name Company: <span>{{ $job->company->name }}</span></li>
                                 <li>Salary: <span>{{ number_format($job->salary,0,'','.') }}VNĐ</span></li>
                                 <li>Job Nature: <span> Full-time</span></li>
                                 <li>Location: <span>California, USA</span></li>
@@ -140,35 +107,6 @@
                             <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
                         </ul>
                     </div>
-                    {{-- <div class="job_location_wrap">
-                        <div class="job_lok_inner">
-                            <div id="map" style="height: 200px;"></div>
-                            <script>
-                              function initMap() {
-                                var uluru = {lat: -25.363, lng: 131.044};
-                                var grayStyles = [
-                                  {
-                                    featureType: "all",
-                                    stylers: [
-                                      { saturation: -90 },
-                                      { lightness: 50 }
-                                    ]
-                                  },
-                                  {elementType: 'labels.text.fill', stylers: [{color: '#ccdee9'}]}
-                                ];
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                  center: {lat: -31.197, lng: 150.744},
-                                  zoom: 9,
-                                  styles: grayStyles,
-                                  scrollwheel:  false
-                                });
-                              }
-
-                            </script>
-                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
-
-                          </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -176,4 +114,14 @@
 
 @endsection
 
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#_errors").on("click", function() {
+            $('.close_errors').hide();
+        });
 
+    })
+</script>
+@endpush

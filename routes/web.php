@@ -27,7 +27,8 @@ Route::group(['prefix' => ''], function () {
         Route::post('/', 'frontend\jobController@postJob');
         Route::get('/detail/{id}', 'frontend\jobController@getJobDetail');
         Route::post('/detail/{id}', 'frontend\jobController@postJobDetail');
-
+        Route::post('/like', 'frontend\jobController@postLike');
+        Route::post('/check-like', 'frontend\jobController@checkLike');
         Route::get('/candidate', 'frontend\jobController@getCandidate');
 
     });
@@ -125,6 +126,10 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::get('/edit/{id}', 'backend\SettingTestimonialController@formEdit');
                 Route::post('/edit/{id}', 'backend\SettingTestimonialController@EditTestimonial');
                 Route::post('/del', 'backend\SettingTestimonialController@deleteTestimonial');
+            });
+            Route::group(['prefix' => 'contact'], function () {
+                Route::get('/', 'backend\SettingContactController@getContact');
+                Route::post('/edit/{id}', 'backend\SettingContactController@EditContact');
             });
         });
     });

@@ -2,8 +2,15 @@
 @section('title', "Job")
 
 @section('content')
-
 <!-- bradcam_area  -->
+<style>
+.checklike{
+        background: #00D363 !important;
+    }
+/* .fa-heart{
+    color: #EFFDF5
+} */
+</style>
 <div class="bradcam_area bradcam_bg_1">
     <div class="container">
         <div class="row">
@@ -92,7 +99,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="serch_cat d-flex justify-content-end">
-                                    <select>
+                                    <select name="sort" class="input_value">
                                         <option data-display="Most Recent">Most Recent</option>
                                         <option value="1">Marketer</option>
                                         <option value="2">Wordpress </option>
@@ -107,6 +114,7 @@
                 <div class="job_lists m-0">
                     <div class="row">
                         @foreach ($jobs as $item)
+                        {{-- {{$item->Like_job->id}} --}}
                             <div class="col-lg-12 col-md-12">
                                 <div class="single_jobs white-bg d-flex justify-content-between">
                                     <div class="jobs_left d-flex align-items-center">
@@ -129,7 +137,10 @@
                                     </div>
                                     <div class="jobs_right">
                                         <div class="apply_now">
-                                            <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
+                                        <a data-wishlish="{{ $item->isCurrentUserWishList }}" data-user-id="{{Auth::guard('customer_web')->id()}}" data-job-id="{{$item->id}}"
+                                            class="heart_mark
+                                            {{ $item->isCurrentUserWishList ? "checklike " : " " }}
+                                            input-like {{$item->id}}" href="javascript:void(0)"> <i class="fa fa-heart"></i> </a>
                                             <a href="/job/detail/{{ $item->id }}" class="boxed-btn3">Apply Now</a>
                                         </div>
                                         <div class="date">
@@ -158,34 +169,37 @@
 
 @section('scrip')
 <script>
-    // $(function () {
-    //     $("#slider-range").slider({
-    //         range: true,
-    //         min: 0,
-    //         max: 24600,
-    //         values: [750, 24600],
-    //         slide: function (event, ui) {
-    //             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1] + "/ Year");
-    //         }
-    //     });
-    //     $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-    //         " - $" + $("#slider-range").slider("values", 1) + "/ Year");
-    // });
-
-    $('#search').on('keyup',function(){
-        $value = $(this).val();
+    $(".input-like").on("click", function(e) {
+        const self = $(this);
+        const user_id = $(this).data('user-id')
+        const job_id = $(this).data('job-id')
         $.ajax({
-            _token: "{{ csrf_token() }}",
-            type:'get',
-            url:'{{URL::to('job/search')}}',
-            data:{
-                'search':$value
+            url: '/job/like',
+            method: 'POST',
+            data: {
+                _token: "{{ csrf_token() }}",
+                job_id: job_id,
             },
-            success:function(data){
-                $('#data-search').html(data);
-            }
-        });
+    }).done(data => {
+
+        if (data.isDelete) {
+            return self.removeClass("checklike")
+        }
+
+        if (!data.isDelete) {
+            return self.addClass("checklike")
+        }
     })
+})
+// $(".input-like").on("click", function(e){
+//     if ($(".input-like").hasClass("checklike"))
+//         $(".input-like").removeClass("checklike");
+//     else
+//         $(".input-like").addClass("checklike");
+
+
+//     // $(".input-like").toggleClass("checklike");
+// })
 
 </script>
 @endsection

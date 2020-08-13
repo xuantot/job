@@ -1,7 +1,7 @@
 @extends('backend.master.master')
 @section('title', "Quản trị Menu")
-@section('user')
-class="setting";
+@section('setting')
+class="active";
 @endsection
 @section('content')
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
